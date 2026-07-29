@@ -1,2 +1,2 @@
 # tpcm
-Ti Porto Con Me - Emotional Mountain Experience Platform
+Ti Porto Con Me – La piattaforma che ti aiuta a scegliere un'emozione, non una destinazione.
