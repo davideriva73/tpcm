@@ -1,457 +1,1057 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blog — Ti porto con me</title>
+  <title>Blog | Ti porto con me</title>
 
-    <link rel="stylesheet" href="style.css">
+  <style>
+    /* =========================================================
+       TI PORTO CON ME — BLOG
+       ========================================================= */
 
-    <style>
-        /* =========================================================
-           BLOG — STILI SPECIFICI DELLA PAGINA
-           ========================================================= */
+    :root {
+      --verde: #183b32;
+      --verde-2: #28584b;
+      --crema: #f7f4ee;
+      --crema-2: #efede6;
+      --arancio: #e86f25;
+      --grigio: #69716d;
+      --bianco: #ffffff;
+      --bordo: #dedbd3;
+    }
 
-        .blog-page {
-            min-height: 100vh;
-            background: #f7f5ef;
-            color: #173f36;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .blog-hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 110px 40px 70px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .blog-eyebrow {
-            margin: 0 0 28px;
-            color: #e56d22;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+    body {
+      background: var(--crema);
+      color: var(--verde);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-        .blog-title {
-            max-width: 850px;
-            margin: 0;
-            color: #173f36;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(52px, 7vw, 92px);
-            font-weight: 400;
-            line-height: .98;
-            letter-spacing: -3px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .blog-intro {
-            max-width: 720px;
-            margin: 35px 0 0;
-            color: #65716d;
-            font-size: 19px;
-            line-height: 1.65;
-        }
+    /* =========================================================
+       HEADER
+       ========================================================= */
 
-        .blog-divider {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-top: 48px;
-        }
+    .header {
+      width: 100%;
+      height: 92px;
+      background: rgba(247, 244, 238, 0.97);
+      border-bottom: 1px solid #e5e1d9;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
 
-        .blog-divider-line {
-            width: 45px;
-            height: 2px;
-            background: #e56d22;
-        }
+    .header-inner {
+      width: min(1180px, calc(100% - 64px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .blog-divider-mountain {
-            color: #173f36;
-            font-size: 25px;
-            letter-spacing: -5px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 260px;
+    }
 
-        .blog-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px 120px;
-        }
+    .logo-mark {
+      width: 48px;
+      height: 32px;
+      position: relative;
+      flex-shrink: 0;
+    }
 
-        .blog-section-label {
-            margin: 0 0 35px;
-            color: #173f36;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 34px;
-            font-weight: 400;
-        }
+    .logo-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
 
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-        }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .blog-card {
-            overflow: hidden;
-            background: #fffdfa;
-            border: 1px solid #e7e3da;
-            border-radius: 24px;
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
+    .logo-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      color: var(--verde);
+    }
 
-        .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(23, 63, 54, .08);
-        }
+    .logo-tagline {
+      margin-top: 6px;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 2.4px;
+      color: var(--grigio);
+    }
 
-        .blog-card-top {
-            min-height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #e9eee9;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 15px;
+      color: var(--verde);
+    }
 
-        .blog-card-symbol {
-            color: #173f36;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 70px;
-            line-height: 1;
-        }
+    .nav a {
+      transition: opacity 0.2s ease;
+      white-space: nowrap;
+    }
 
-        .blog-card-body {
-            padding: 32px 34px 36px;
-        }
+    .nav a:hover {
+      opacity: 0.6;
+    }
 
-        .blog-card-number {
-            margin-bottom: 18px;
-            color: #e56d22;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: 38px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
 
-        .blog-card-title {
-            margin: 0 0 14px;
-            color: #173f36;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 32px;
-            font-weight: 400;
-            line-height: 1.1;
-        }
+    .start-button {
+      background: var(--arancio);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
 
-        .blog-card-text {
-            margin: 0;
-            color: #65716d;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+    .start-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.9;
+    }
 
-        .blog-coming {
-            margin-top: 55px;
-            padding: 50px;
-            background: #173f36;
-            border-radius: 24px;
-            color: #fffdfa;
-        }
+    /* =========================================================
+       HERO
+       ========================================================= */
 
-        .blog-coming-number {
-            margin-bottom: 15px;
-            color: #e56d22;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+    .hero {
+      width: min(1180px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 108px 0 82px;
+    }
 
-        .blog-coming-title {
-            margin: 0 0 16px;
-            color: #fffdfa;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 42px;
-            font-weight: 400;
-        }
+    .eyebrow {
+      color: var(--arancio);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
 
-        .blog-coming-text {
-            max-width: 750px;
-            margin: 0;
-            color: rgba(255,255,255,.75);
-            font-size: 17px;
-            line-height: 1.65;
-        }
+    .hero h1 {
+      max-width: 850px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(58px, 7vw, 94px);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -4px;
+      color: var(--verde);
+    }
 
-        .blog-footer {
-            border-top: 1px solid #e2ded5;
-            padding: 35px 40px;
-            text-align: center;
-            color: #71807a;
-            font-size: 14px;
-        }
+    .hero-description {
+      max-width: 730px;
+      margin-top: 34px;
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--grigio);
+    }
 
-        @media (max-width: 800px) {
+    .decoration {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 42px;
+    }
 
-            .blog-hero {
-                padding: 80px 24px 50px;
-            }
+    .decoration-line {
+      width: 46px;
+      height: 2px;
+      background: var(--arancio);
+    }
 
-            .blog-content {
-                padding: 0 24px 80px;
-            }
+    .decoration-mountain {
+      width: 27px;
+      height: 18px;
+    }
 
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
+    /* =========================================================
+       INTRO
+       ========================================================= */
 
-            .blog-title {
-                font-size: 55px;
-                letter-spacing: -2px;
-            }
+    .intro {
+      width: min(1180px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 0 0 48px;
+    }
 
-            .blog-coming {
-                padding: 35px 28px;
-            }
+    .intro h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
 
-            .blog-coming-title {
-                font-size: 34px;
-            }
-        }
-    </style>
+    .intro p {
+      max-width: 760px;
+      color: var(--grigio);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       ARTICOLI
+       ========================================================= */
+
+    .articles {
+      width: min(1180px, calc(100% - 64px));
+      margin: 0 auto;
+      padding-bottom: 120px;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .article-card {
+      background: var(--bianco);
+      border: 1px solid #e5e1d9;
+      border-radius: 22px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(24, 59, 50, 0.08);
+    }
+
+    .article-image {
+      height: 260px;
+      background:
+        linear-gradient(
+          135deg,
+          #dfe7e1 0%,
+          #eef0ea 45%,
+          #d5ddd7 100%
+        );
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-image svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .article-content {
+      padding: 32px 34px 36px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 17px;
+      color: var(--arancio);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .article-meta span:last-child {
+      color: #a5aaa6;
+    }
+
+    .article-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    .article-card p {
+      color: var(--grigio);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 25px;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--verde);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .read-more::after {
+      content: "→";
+      color: var(--arancio);
+      font-size: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .article-card:hover .read-more::after {
+      transform: translateX(4px);
+    }
+
+    /* =========================================================
+       SEZIONE FINALE
+       ========================================================= */
+
+    .closing {
+      width: min(1180px, calc(100% - 64px));
+      margin: 0 auto 110px;
+      background: var(--verde);
+      color: white;
+      border-radius: 24px;
+      padding: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .closing-text {
+      max-width: 700px;
+    }
+
+    .closing-label {
+      color: #e98a4d;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .closing h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .closing p {
+      color: rgba(255,255,255,0.72);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .closing-button {
+      flex-shrink: 0;
+      background: var(--arancio);
+      color: white;
+      border-radius: 12px;
+      padding: 15px 25px;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .footer {
+      border-top: 1px solid #dedbd3;
+      padding: 34px 0;
+      color: var(--grigio);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 64px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      color: var(--verde);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1050px) {
+
+      .nav {
+        gap: 20px;
+      }
+
+      .header-actions {
+        margin-left: 20px;
+        gap: 16px;
+      }
+
+      .logo {
+        min-width: auto;
+      }
+
+    }
+
+    @media (max-width: 850px) {
+
+      .header {
+        height: auto;
+        padding: 18px 0;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px 24px;
+      }
+
+      .header-actions {
+        margin-left: auto;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .closing {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 45px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .header-inner,
+      .hero,
+      .intro,
+      .articles,
+      .closing,
+      .footer-inner {
+        width: min(100% - 36px, 1180px);
+      }
+
+      .logo-name {
+        font-size: 22px;
+      }
+
+      .logo-tagline {
+        font-size: 7px;
+      }
+
+      .header-actions {
+        gap: 12px;
+      }
+
+      .header-actions > a:first-child {
+        display: none;
+      }
+
+      .start-button {
+        padding: 11px 17px;
+      }
+
+      .hero {
+        padding: 65px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+        letter-spacing: -2.5px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .intro h2 {
+        font-size: 35px;
+      }
+
+      .article-image {
+        height: 220px;
+      }
+
+      .article-content {
+        padding: 27px;
+      }
+
+      .article-card h3 {
+        font-size: 30px;
+      }
+
+      .closing {
+        margin-bottom: 70px;
+        padding: 35px 28px;
+      }
+
+      .closing h2 {
+        font-size: 36px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="blog-page">
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
 
-        <!-- =====================================================
-             HEADER
-             ===================================================== -->
+  <header class="header">
 
-        <header class="header">
+    <div class="header-inner">
 
-            <div class="logo">
-                <a href="index.html">
-                    <span>⌁</span>
-                    <strong>ti porto con me</strong>
-                    <small>RACCONTA · VIVI · TRAMANDA</small>
-                </a>
-            </div>
+      <a href="index.html" class="logo">
 
-            <nav>
-                <a href="index.html">Il progetto</a>
-                <a href="index.html">Come funziona</a>
-                <a href="index.html">Albero della Vita</a>
-                <a href="diario.html">Diario</a>
-                <a href="blog.html">Blog</a>
-            </nav>
+        <div class="logo-mark">
+          <svg viewBox="0 0 60 40" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M3 31L18 16L28 25L39 11L57 31"
+              stroke="#183B32"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
 
-            <div class="header-actions">
-                <a href="#">Accedi</a>
-                <a href="racconta.html" class="button">Inizia</a>
-            </div>
+        <div class="logo-text">
+          <div class="logo-name">ti porto con me</div>
+          <div class="logo-tagline">
+            RACCONTA&nbsp;&nbsp;·&nbsp;&nbsp;VIVI&nbsp;&nbsp;·&nbsp;&nbsp;TRAMANDA
+          </div>
+        </div>
 
-        </header>
+      </a>
 
+      <nav class="nav">
 
-        <!-- =====================================================
-             HERO BLOG
-             ===================================================== -->
+        <a href="index.html">Il progetto</a>
 
-        <main>
+        <a href="index.html">Come funziona</a>
 
-            <section class="blog-hero">
+        <a href="index.html">Albero della Vita</a>
 
-                <p class="blog-eyebrow">
-                    IL BLOG
-                </p>
+        <a href="diario.html">Diario</a>
 
-                <h1 class="blog-title">
-                    Storie, pensieri<br>
-                    e tracce da portare con te.
-                </h1>
+        <a href="blog.html">Blog</a>
 
-                <p class="blog-intro">
-                    Un luogo per fermarsi, leggere e lasciarsi ispirare
-                    dalle esperienze degli altri. Perché alcune storie
-                    meritano di essere raccontate, anche quando il viaggio
-                    è già finito.
-                </p>
+      </nav>
 
-                <div class="blog-divider">
-                    <div class="blog-divider-line"></div>
-                    <div class="blog-divider-mountain">⌃⌃</div>
-                </div>
+      <div class="header-actions">
 
-            </section>
+        <a href="#">Accedi</a>
 
+        <a href="racconto.html" class="start-button">
+          Inizia
+        </a>
 
-            <!-- =================================================
-                 CONTENUTO
-                 ================================================= -->
-
-            <section class="blog-content">
-
-                <h2 class="blog-section-label">
-                    Dal mondo di Ti porto con me
-                </h2>
-
-                <div class="blog-grid">
-
-                    <article class="blog-card">
-
-                        <div class="blog-card-top">
-                            <div class="blog-card-symbol">
-                                ◇
-                            </div>
-                        </div>
-
-                        <div class="blog-card-body">
-
-                            <div class="blog-card-number">
-                                01
-                            </div>
-
-                            <h3 class="blog-card-title">
-                                Il valore di un ricordo
-                            </h3>
-
-                            <p class="blog-card-text">
-                                Ci sono esperienze che finiscono quando
-                                torniamo a casa. E altre che continuano
-                                a vivere dentro di noi.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="blog-card">
-
-                        <div class="blog-card-top">
-                            <div class="blog-card-symbol">
-                                ♧
-                            </div>
-                        </div>
-
-                        <div class="blog-card-body">
-
-                            <div class="blog-card-number">
-                                02
-                            </div>
-
-                            <h3 class="blog-card-title">
-                                Perché raccontare
-                            </h3>
-
-                            <p class="blog-card-text">
-                                Raccontare ciò che abbiamo vissuto significa
-                                dare un posto alle esperienze e permettere
-                                che non vadano perdute.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="blog-card">
-
-                        <div class="blog-card-top">
-                            <div class="blog-card-symbol">
-                                ♡
-                            </div>
-                        </div>
-
-                        <div class="blog-card-body">
-
-                            <div class="blog-card-number">
-                                03
-                            </div>
-
-                            <h3 class="blog-card-title">
-                                I luoghi che ci cambiano
-                            </h3>
-
-                            <p class="blog-card-text">
-                                Una montagna, un sentiero, un rifugio,
-                                un panorama. A volte sono i luoghi a lasciare
-                                dentro di noi la traccia più profonda.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="blog-card">
-
-                        <div class="blog-card-top">
-                            <div class="blog-card-symbol">
-                                ✦
-                            </div>
-                        </div>
-
-                        <div class="blog-card-body">
-
-                            <div class="blog-card-number">
-                                04
-                            </div>
-
-                            <h3 class="blog-card-title">
-                                Ognuno ha il proprio Everest
-                            </h3>
-
-                            <p class="blog-card-text">
-                                Non tutti i viaggi hanno la stessa meta.
-                                E non tutte le conquiste si possono misurare
-                                in metri.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-
-                <!-- =============================================
-                     PROSSIMAMENTE
-                     ============================================= -->
-
-                <div class="blog-coming">
-
-                    <div class="blog-coming-number">
-                        PRESTO QUI
-                    </div>
-
-                    <h2 class="blog-coming-title">
-                        Le storie della comunità
-                    </h2>
-
-                    <p class="blog-coming-text">
-                        Il blog di Ti porto con me raccoglierà storie,
-                        riflessioni e racconti legati ai luoghi e alle
-                        esperienze che lasciano qualcosa dentro di noi.
-                        Alcuni nasceranno dalla comunità, altri dal
-                        viaggio stesso.
-                    </p>
-
-                </div>
-
-            </section>
-
-        </main>
-
-
-        <!-- =====================================================
-             FOOTER
-             ===================================================== -->
-
-        <footer class="blog-footer">
-            Ti porto con me · Racconta · Vivi · Tramanda
-        </footer>
+      </div>
 
     </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+       ======================================================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        Il blog
+      </div>
+
+      <h1>
+        Storie, pensieri<br>
+        e tracce da portare<br>
+        con te.
+      </h1>
+
+      <p class="hero-description">
+        Un luogo per fermarsi, leggere e lasciarsi ispirare
+        dalle esperienze degli altri. Perché alcune storie
+        meritano di essere raccontate, anche quando il viaggio
+        è già finito.
+      </p>
+
+      <div class="decoration">
+
+        <div class="decoration-line"></div>
+
+        <svg class="decoration-mountain"
+             viewBox="0 0 32 20"
+             fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+
+          <path
+            d="M2 17L10 8L15 13L21 5L30 17"
+            stroke="#28584B"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+        </svg>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="intro">
+
+      <h2>
+        Dal viaggio rimane sempre qualcosa.
+      </h2>
+
+      <p>
+        A volte è una fotografia. A volte una sensazione.
+        Una persona incontrata lungo il cammino, una salita
+        che sembrava impossibile o semplicemente un momento
+        di silenzio. Qui raccogliamo storie che vale la pena
+        portare con sé.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         ARTICOLI
+         ===================================================== -->
+
+    <section class="articles">
+
+      <div class="article-grid">
+
+
+        <!-- ARTICOLO 1 -->
+
+        <article class="article-card">
+
+          <div class="article-image">
+
+            <svg viewBox="0 0 700 320"
+                 preserveAspectRatio="none"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <rect width="700" height="320" fill="#e7ebe5"/>
+
+              <path
+                d="M0 230
+                   C100 180 160 190 240 220
+                   C330 255 400 170 480 185
+                   C570 205 625 150 700 135
+                   L700 320
+                   L0 320Z"
+                fill="#c9d4cb"
+              />
+
+              <path
+                d="M0 260
+                   C130 220 205 240 300 250
+                   C390 260 475 205 550 220
+                   C620 235 660 210 700 195
+                   L700 320
+                   L0 320Z"
+                fill="#aebfb3"
+              />
+
+              <path
+                d="M420 205
+                   C470 220 500 235 535 270
+                   C555 290 565 302 575 320"
+                stroke="#e86f25"
+                stroke-width="4"
+                fill="none"
+                opacity=".8"
+              />
+
+              <path
+                d="M270 215L335 130L400 215"
+                stroke="#183b32"
+                stroke-width="5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </div>
+
+          <div class="article-content">
+
+            <div class="article-meta">
+              <span>Esperienze</span>
+              <span>•</span>
+              <span>5 min</span>
+            </div>
+
+            <h3>
+              Quello che una montagna
+              ti lascia dentro
+            </h3>
+
+            <p>
+              Non sempre partiamo per arrivare da qualche parte.
+              A volte partiamo per ascoltare quello che succede
+              dentro di noi mentre camminiamo.
+            </p>
+
+            <a href="#" class="read-more">
+              Leggi la storia
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICOLO 2 -->
+
+        <article class="article-card">
+
+          <div class="article-image">
+
+            <svg viewBox="0 0 700 320"
+                 preserveAspectRatio="none"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <rect width="700" height="320" fill="#e9e8df"/>
+
+              <circle
+                cx="535"
+                cy="85"
+                r="45"
+                fill="#f0c58e"
+                opacity=".65"
+              />
+
+              <path
+                d="M0 220L145 100L235 185L345 65L500 220L570 145L700 250V320H0Z"
+                fill="#b9c6bd"
+              />
+
+              <path
+                d="M0 250L170 155L275 235L390 125L510 245L590 190L700 270V320H0Z"
+                fill="#8fa69a"
+              />
+
+              <path
+                d="M345 65L390 125L360 112L340 130L320 115Z"
+                fill="#f7f4ee"
+              />
+
+            </svg>
+
+          </div>
+
+          <div class="article-content">
+
+            <div class="article-meta">
+              <span>Emozioni</span>
+              <span>•</span>
+              <span>4 min</span>
+            </div>
+
+            <h3>
+              La libertà di non avere
+              fretta
+            </h3>
+
+            <p>
+              Ci sono sentieri che sembrano chiederti soltanto
+              una cosa: rallentare. E forse è proprio lì che
+              iniziamo finalmente a vedere davvero.
+            </p>
+
+            <a href="#" class="read-more">
+              Leggi la storia
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICOLO 3 -->
+
+        <article class="article-card">
+
+          <div class="article-image">
+
+            <svg viewBox="0 0 700 320"
+                 preserveAspectRatio="none"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <rect width="700" height="320" fill="#e2e9e5"/>
+
+              <path
+                d="M0 185L100 105L180 170L300 70L390 155L490 90L610 180L700 115V320H0Z"
+                fill="#9db2a5"
+              />
+
+              <path
+                d="M0 230L130 160L240 230L350 150L455 235L570 155L700 230V320H0Z"
+                fill="#6f8d7e"
+              />
+
+              <path
+                d="M300 70L350 150L325 130L302 145L280 125Z"
+                fill="#f7f4ee"
+              />
+
+              <circle
+                cx="110"
+                cy="85"
+                r="34"
+                fill="#e89b3a"
+                opacity=".7"
+              />
+
+            </svg>
+
+          </div>
+
+          <div class="article-content">
+
+            <div class="article-meta">
+              <span>Riflessioni</span>
+              <span>•</span>
+              <span>6 min</span>
+            </div>
+
+            <h3>
+              Perché continuiamo
+              a tornare lassù
+            </h3>
+
+            <p>
+              C'è qualcosa che ci richiama verso la montagna.
+              Forse non è la vetta. Forse è il modo in cui
+              ci sentiamo quando finalmente ci siamo.
+            </p>
+
+            <a href="#" class="read-more">
+              Leggi la storia
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICOLO 4 -->
+
+        <article class="article-card">
+
+          <div class="article-image">
+
+            <svg viewBox="0 0 700 320"
+                 preserveAspectRatio="none"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <rect width="700" height="320" fill="#e9e6dc"/>
+
+              <path
+                d="M0 210
+                   L125 115
+                   L210 190
+                   L330 85
+                   L440 200
+                   L545 120
+                   L700 215
+                   V320
+                   H0Z"
+                fill="#a9b9ae"
+              />
+
+              <path
+                d="M0 260
+                   C120 215 190 235 290 255
+                   C410 280 500 215 700 260
+                   V320
+                   H0Z"
+                fill="#7e998a"
+              />
+
+              <path
+                d="M470 215
+                   C500 230 510 255 515 320"
+                stroke="#e86f25"
+                stroke-width="4"
+                fill="none"
+              />
+
+              <circle
+                cx="560"
+                cy="65"
+                r="32"
+                fill="#e89b3a"
+                opacity=".55"
+              />
+
+            </svg>
+
+          </div>
+
+          <div class="article-content">
+
+            <div class="article-meta">
+              <span>Persone</span>
+              <span>•</span>
+              <span>5 min</span>
+            </div>
+
+            <h3>
+              Le persone che incontri
+              lungo il cammino
+            </h3>
+
+            <p>
+              Alcuni incontri durano pochi minuti.
+              Eppure riescono a rimanere nella memoria
+              molto più a lungo di quanto immaginiamo.
+            </p>
+
+            <a href="#" class="read-more">
+              Leggi la storia
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CALL TO ACTION
+         ===================================================== -->
+
+    <section class="closing">
+
+      <div class="closing-text">
+
+        <div class="closing-label">
+          Anche tu hai una storia?
+        </div>
+
+        <h2>
+          Quello che hai vissuto
+          può diventare un ricordo.
+        </h2>
+
+        <p>
+          Racconta un'esperienza che vuoi conservare.
+          Puoi tenerla per te oppure, se vorrai,
+          condividerla con la comunità di Ti porto con me.
+        </p>
+
+      </div>
+
+      <a href="racconto.html" class="closing-button">
+        Racconta la tua storia
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer class="footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        ti porto con me
+      </div>
+
+      <div>
+        Racconta · Vivi · Tramanda
+      </div>
+
+      <div>
+        © 2026 Ti porto con me
+      </div>
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
