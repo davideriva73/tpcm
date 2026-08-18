@@ -1,0 +1,690 @@
+/* =========================================================
+   TI PORTO CON ME
+   STILE GENERALE
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #203c35;
+  background: #f7f4ee;
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  height: 90px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7f4ee;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  color: #183b32;
+}
+
+.logo-mountain {
+  font-size: 42px;
+  line-height: 1;
+}
+
+nav {
+  display: flex;
+  gap: 38px;
+}
+
+nav a,
+.header-actions a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+}
+
+nav a:hover,
+.header-actions a:hover {
+  color: #183b32;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.button {
+  background: #183b32;
+  color: white !important;
+  padding: 14px 25px;
+  border-radius: 12px;
+}
+
+
+/* =========================================================
+   PAGINA RACCONTA
+========================================================= */
+
+.racconta-page {
+  padding: 65px 6% 90px;
+  background: #f7f4ee;
+}
+
+
+/* =========================================================
+   INTRODUZIONE
+========================================================= */
+
+.racconta-intro {
+  max-width: 920px;
+  margin: 0 auto 45px;
+}
+
+.racconta-symbol {
+  width: 55px;
+  height: 1px;
+  background: #183b32;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.racconta-symbol::after {
+  content: "⌁";
+  position: absolute;
+  left: 20px;
+  top: -18px;
+  background: #f7f4ee;
+  padding: 0 8px;
+  font-size: 25px;
+  color: #183b32;
+}
+
+.racconta-intro h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(46px, 5vw, 72px);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: #183b32;
+  max-width: 850px;
+}
+
+.racconta-intro p {
+  margin-top: 25px;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #333;
+  max-width: 600px;
+}
+
+
+/* =========================================================
+   CARD RACCONTO
+========================================================= */
+
+.racconto-card {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #fffdf9;
+  border: 1px solid rgba(32, 60, 53, 0.10);
+  border-radius: 4px;
+  padding: 55px;
+  box-shadow: 0 15px 45px rgba(32, 60, 53, 0.05);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+  margin-bottom: 34px;
+}
+
+.form-group > label {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  color: #183b32;
+  margin-bottom: 12px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  border: 1px solid rgba(32, 60, 53, 0.20);
+  border-radius: 3px;
+  background: #fff;
+  color: #203c35;
+  padding: 15px 17px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: #183b32;
+  box-shadow: 0 0 0 3px rgba(24, 59, 50, 0.07);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 190px;
+  line-height: 1.65;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+
+/* =========================================================
+   EMOZIONI
+========================================================= */
+
+.emotions-group {
+  margin-top: 15px;
+}
+
+.emotions-description {
+  font-size: 15px;
+  color: #666;
+  margin-top: -4px;
+  margin-bottom: 18px;
+}
+
+.emotions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.emotions button {
+  border: 1px solid rgba(32, 60, 53, 0.20);
+  background: transparent;
+  color: #203c35;
+  padding: 10px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+.emotions button:hover {
+  border-color: #183b32;
+  transform: translateY(-1px);
+}
+
+.emotions button.selected {
+  background: #183b32;
+  color: #fff;
+  border-color: #183b32;
+}
+
+
+/* =========================================================
+   INTENSITÀ EMOZIONI
+========================================================= */
+
+.intensity-area {
+  display: none;
+  margin-top: 28px;
+  padding: 25px 28px;
+  background: #f3f1eb;
+  border-radius: 3px;
+  border-left: 3px solid #183b32;
+}
+
+.intensity-area.visible {
+  display: block;
+}
+
+.intensity-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  color: #183b32;
+  margin-bottom: 4px;
+}
+
+.intensity-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 22px;
+}
+
+.emotion-intensity {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(32, 60, 53, 0.10);
+}
+
+.emotion-intensity:last-child {
+  border-bottom: none;
+}
+
+.emotion-intensity-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  color: #183b32;
+}
+
+.intensity-scale {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.intensity-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(32, 60, 53, 0.30);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+.intensity-dot:hover {
+  transform: scale(1.1);
+  border-color: #183b32;
+}
+
+.intensity-dot.active {
+  background: #183b32;
+  border-color: #183b32;
+}
+
+.intensity-value {
+  margin-left: 7px;
+  font-size: 14px;
+  color: #666;
+  min-width: 28px;
+}
+
+
+/* =========================================================
+   FOTOGRAFIA
+========================================================= */
+
+.photo-upload {
+  min-height: 125px;
+  border: 1px dashed rgba(32, 60, 53, 0.30);
+  background: #fcfbf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 25px;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.photo-upload:hover {
+  border-color: #183b32;
+  background: #faf8f2;
+}
+
+.photo-upload input[type="file"] {
+  max-width: 250px;
+  color: #333;
+}
+
+.photo-upload span {
+  font-size: 16px;
+  color: #555;
+}
+
+.photo-preview {
+  display: none;
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.photo-preview:not(:empty) {
+  display: block;
+}
+
+.photo-preview img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   NOTA PRIVACY
+========================================================= */
+
+.privacy-note {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 23px 25px;
+  margin-top: 10px;
+  background: #f1f0eb;
+  color: #35544c;
+}
+
+.privacy-note span {
+  font-size: 29px;
+  flex-shrink: 0;
+}
+
+.privacy-note p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   AZIONI FORM
+========================================================= */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 45px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(32, 60, 53, 0.15);
+}
+
+.secondary-button {
+  color: #183b32;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.secondary-button:hover {
+  text-decoration: underline;
+}
+
+.primary-button {
+  border: none;
+  background: #183b32;
+  color: white;
+  padding: 17px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.primary-button:hover {
+  background: #102f28;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  min-height: 100px;
+  padding: 25px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: #183b32;
+  color: white;
+}
+
+.footer-logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  white-space: nowrap;
+}
+
+.footer-logo span {
+  font-size: 30px;
+  margin-right: 8px;
+}
+
+.copyright {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social {
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  nav {
+    display: none;
+  }
+
+  .header {
+    padding: 0 5%;
+  }
+
+  .racconta-page {
+    padding: 50px 5% 70px;
+  }
+
+  .racconto-card {
+    padding: 40px;
+  }
+
+  .emotion-intensity {
+    grid-template-columns: 130px 1fr;
+  }
+
+  footer {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .header {
+    height: 75px;
+    padding: 0 6%;
+  }
+
+  .logo {
+    font-size: 22px;
+    gap: 10px;
+  }
+
+  .logo-mountain {
+    font-size: 30px;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .header-actions a:first-child {
+    display: none;
+  }
+
+  .header-actions .button {
+    padding: 11px 18px;
+  }
+
+  .racconta-page {
+    padding: 40px 5% 60px;
+  }
+
+  .racconta-intro {
+    margin-bottom: 30px;
+  }
+
+  .racconta-intro h1 {
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .racconta-intro p {
+    font-size: 17px;
+  }
+
+  .racconto-card {
+    padding: 28px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group > label {
+    font-size: 21px;
+  }
+
+  .emotions {
+    gap: 8px;
+  }
+
+  .emotions button {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .intensity-area {
+    padding: 20px 16px;
+  }
+
+  .emotion-intensity {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .intensity-scale {
+    gap: 7px;
+  }
+
+  .intensity-dot {
+    width: 27px;
+    height: 27px;
+  }
+
+  .photo-upload {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .photo-upload span {
+    font-size: 14px;
+  }
+
+  .privacy-note {
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+
+  .secondary-button {
+    text-align: center;
+  }
+
+  footer {
+    padding: 30px 6%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    display: none;
+  }
+
+  .social {
+    align-self: flex-end;
+  }
+
+  .copyright {
+    white-space: normal;
+  }
+}
