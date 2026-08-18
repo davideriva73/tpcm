@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Diario | Ti Porto Con Me</title>
+
+  <meta
+    name="description"
+    content="Il tuo diario di esperienze, ricordi ed emozioni."
+  >
+
+  <style>
+
+    :root {
+      --cream: #f7f4ee;
+      --cream-light: #fbfaf7;
+      --paper: #fffdfa;
+
+      --green: #183b32;
+      --green-soft: #31574c;
+      --green-light: #e8eee9;
+
+      --orange: #d96b2b;
+      --orange-light: #f5e3d5;
+
+      --text: #203c35;
+      --text-soft: #68736e;
+
+      --border: #dddcd5;
+
+      --shadow:
+        0 12px 35px rgba(24, 59, 50, 0.08);
+
+      --radius: 16px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--text);
+      background: var(--cream);
+
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    header {
+      height: 88px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 5.5%;
+
+      background:
+        rgba(247, 244, 238, 0.96);
+
+      border-bottom:
+        1px solid rgba(32, 60, 53, 0.08);
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      backdrop-filter: blur(10px);
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 13px;
+
+      text-decoration: none;
+
+      color: var(--green);
+    }
+
+
+    .brand-logo {
+      width: 48px;
+      height: 32px;
+
+      display: block;
+    }
+
+
+    .brand-name {
+      display: block;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 25px;
+
+      letter-spacing: -0.4px;
+    }
+
+
+    .brand-subtitle {
+      display: block;
+
+      font-size: 7px;
+
+      letter-spacing: 2.3px;
+
+      margin-top: 2px;
+
+      color: var(--text-soft);
+    }
+
+
+    nav {
+      display: flex;
+      align-items: center;
+
+      gap: 32px;
+    }
+
+
+    nav a {
+      color: var(--text);
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    nav a:hover {
+      color: var(--orange);
+    }
+
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+
+    .login-link {
+      color: var(--text);
+
+      text-decoration: none;
+
+      font-size: 14px;
+    }
+
+
+    .start-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 12px 22px;
+
+      background: var(--orange);
+
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 10px;
+
+      font-size: 14px;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+
+    .start-button:hover {
+      background: #c75e24;
+
+      transform: translateY(-1px);
+    }
+
+
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
+    .page {
+      max-width: 1180px;
+
+      margin: 0 auto;
+
+      padding:
+        72px 32px 90px;
+    }
+
+
+    .eyebrow {
+      color: var(--orange);
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 18px;
+    }
+
+
+    h1 {
+      max-width: 780px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(45px, 5vw, 68px);
+
+      font-weight: 400;
+
+      line-height: 1.04;
+
+      letter-spacing: -2px;
+
+      color: var(--green);
+    }
+
+
+    .intro-text {
+      max-width: 650px;
+
+      margin-top: 22px;
+
+      color: var(--text-soft);
+
+      font-size: 17px;
+
+      line-height: 1.7;
+    }
+
+
+    .intro-line {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      margin-top: 28px;
+    }
+
+
+    .intro-line::before {
+      content: "";
+
+      width: 34px;
+      height: 2px;
+
+      background: var(--orange);
+    }
+
+
+    .mountain {
+      width: 30px;
+      height: 18px;
+    }
+
+
+    /* =====================================================
+       DIARY HEADER
+       ===================================================== */
+
+    .diary-top {
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-top: 55px;
+
+      margin-bottom: 24px;
+    }
+
+
+    .diary-title {
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 28px;
+
+      font-weight: 400;
+
+      color: var(--green);
+    }
+
+
+    .diary-count {
+      color: var(--text-soft);
+
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       EMPTY STATE
+       ===================================================== */
+
+    .empty-state {
+      background: var(--paper);
+
+      border:
+        1px solid rgba(32, 60, 53, 0.08);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      padding:
+        75px 30px;
+
+      text-align: center;
+    }
+
+
+    .empty-icon {
+      width: 62px;
+      height: 62px;
+
+      margin:
+        0 auto 22px;
+
+      border:
+        1px solid var(--green);
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+
+      font-size: 27px;
+    }
+
+
+    .empty-state h2 {
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 29px;
+
+      font-weight: 400;
+
+      color: var(--green);
+
+      margin-bottom: 12px;
+    }
+
+
+    .empty-state p {
+      max-width: 480px;
+
+      margin:
+        0 auto 25px;
+
+      color: var(--text-soft);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+
+    .primary-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: var(--orange);
+
+      color: white;
+
+      text-decoration: none;
+
+      border: none;
+
+      border-radius: 10px;
+
+      padding:
+        13px 22px;
+
+      font-size: 14px;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .primary-button:hover {
+      background: #c75e24;
+
+      transform: translateY(-1px);
+    }
+
+
+    /* =====================================================
+       STORY CARD
+       ===================================================== */
+
+    .story-card {
+      background: var(--paper);
+
+      border:
+        1px solid rgba(32, 60, 53, 0.08);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+
+      display: grid;
+
+      grid-template-columns:
+        0.85fr 1.15fr;
+
+      margin-bottom: 25px;
+    }
+
+
+    .story-image {
+      min-height: 330px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--green-light),
+          #f2eee5
+        );
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+
+      min-height: 330px;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+
+    .story-image-placeholder {
+      text-align: center;
+
+      color: var(--green);
+    }
+
+
+    .story-image-placeholder .symbol {
+      font-size: 38px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .story-image-placeholder span {
+      display: block;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 18px;
+    }
+
+
+    .story-content {
+      padding: 38px 40px;
+    }
+
+
+    .story-date {
+      color: var(--orange);
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+    }
+
+
+    .story-content h2 {
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 34px;
+
+      line-height: 1.15;
+
+      font-weight: 400;
+
+      color: var(--green);
+
+      margin-bottom: 8px;
+    }
+
+
+    .story-place {
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .story-place::before {
+      content: "⌖ ";
+
+      color: var(--orange);
+    }
+
+
+    .story-excerpt {
+      color: var(--text);
+
+      font-size: 15px;
+
+      line-height: 1.75;
+
+      margin-bottom: 24px;
+    }
+
+
+    .emotion-list {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 28px;
+    }
+
+
+    .emotion {
+      padding:
+        6px 11px;
+
+      background:
+        var(--green-light);
+
+      color: var(--green);
+
+      border-radius: 20px;
+
+      font-size: 11px;
+    }
+
+
+    .story-footer {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+
+    .privacy {
+      color: var(--text-soft);
+
+      font-size: 11px;
+    }
+
+
+    .read-button {
+      border: none;
+
+      background: transparent;
+
+      color: var(--green);
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      text-decoration: none;
+    }
+
+
+    .read-button:hover {
+      color: var(--orange);
+    }
+
+
+    /* =====================================================
+       FULL STORY
+       ===================================================== */
+
+    .full-story {
+      display: none;
+
+      background: var(--paper);
+
+      border:
+        1px solid rgba(32, 60, 53, 0.08);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      padding: 45px;
+
+      margin-top: 25px;
+    }
+
+
+    .full-story.visible {
+      display: block;
+    }
+
+
+    .full-story h2 {
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 34px;
+
+      font-weight: 400;
+
+      color: var(--green);
+
+      margin-bottom: 8px;
+    }
+
+
+    .full-story-meta {
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+      margin-bottom: 30px;
+    }
+
+
+    .full-story-text {
+      max-width: 760px;
+
+      color: var(--text);
+
+      font-size: 16px;
+
+      line-height: 1.9;
+
+      white-space: pre-line;
+
+      margin-bottom: 30px;
+    }
+
+
+    .lasting {
+      max-width: 760px;
+
+      padding:
+        20px 22px;
+
+      background:
+        var(--orange-light);
+
+      border-left:
+        3px solid var(--orange);
+
+      border-radius:
+        0 10px 10px 0;
+
+      color: var(--text);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 16px;
+
+      line-height: 1.6;
+    }
+
+
+    .lasting-label {
+      display: block;
+
+      color: var(--orange);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 7px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      background: var(--green);
+
+      color: white;
+
+      padding:
+        30px 5.5%;
+    }
+
+
+    .footer-inner {
+      max-width: 1250px;
+
+      margin: 0 auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+
+    .footer-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+    }
+
+
+    .footer-brand .brand-name {
+      color: white;
+
+      font-size: 20px;
+    }
+
+
+    .footer-brand .brand-subtitle {
+      color:
+        rgba(255,255,255,0.65);
+    }
+
+
+    .footer-links {
+      display: flex;
+
+      gap: 28px;
+    }
+
+
+    .footer-links a {
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 13px;
+
+      opacity: 0.9;
+    }
+
+
+    .footer-bottom {
+      max-width: 1250px;
+
+      margin: 25px auto 0;
+
+      padding-top: 18px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      color:
+        rgba(255,255,255,0.65);
+
+      font-size: 11px;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 850px) {
+
+      header {
+        height: auto;
+
+        min-height: 78px;
+
+        padding:
+          14px 22px;
+      }
+
+
+      nav {
+        display: none;
+      }
+
+
+      .header-actions {
+        gap: 10px;
+      }
+
+
+      .login-link {
+        display: none;
+      }
+
+
+      .page {
+        padding:
+          55px 20px 65px;
+      }
+
+
+      h1 {
+        font-size: 45px;
+
+        letter-spacing: -1.5px;
+      }
+
+
+      .diary-top {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+
+        margin-top: 40px;
+      }
+
+
+      .story-card {
+        grid-template-columns: 1fr;
+      }
+
+
+      .story-image {
+        min-height: 230px;
+      }
+
+
+      .story-image img {
+        min-height: 230px;
+      }
+
+
+      .story-content {
+        padding:
+          30px 25px;
+      }
+
+
+      .story-content h2 {
+        font-size: 29px;
+      }
+
+
+      .full-story {
+        padding:
+          30px 25px;
+      }
+
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+
+      .footer-links {
+        flex-wrap: wrap;
+
+        gap: 15px 25px;
+      }
+
+
+      .footer-bottom {
+        flex-direction: column;
+
+        gap: 7px;
+      }
+    }
+
+
+    @media (max-width: 500px) {
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+
+      .brand-logo {
+        width: 40px;
+      }
+
+
+      .start-button {
+        padding:
+          10px 15px;
+      }
+
+
+      h1 {
+        font-size: 39px;
+      }
+
+
+      .intro-text {
+        font-size: 15px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header>
+
+    <a
+      href="index.html"
+      class="brand"
+      aria-label="Ti Porto Con Me"
+    >
+
+      <svg
+        class="brand-logo"
+        viewBox="0 0 100 60"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M5 45 L30 20 L46 34 L64 12 L95 45"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <path
+          d="M30 20 L38 28"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+
+      </svg>
+
+
+      <div>
+
+        <span class="brand-name">
+          ti porto con me
+        </span>
+
+        <span class="brand-subtitle">
+          RACCONTA · VIVI · TRAMANDA
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <nav>
+
+      <a href="index.html">
+        Il progetto
+      </a>
+
+      <a href="come-funziona.html">
+        Come funziona
+      </a>
+
+      <a href="diario.html">
+        Albero della Vita
+      </a>
+
+      <a href="diario.html">
+        Diario
+      </a>
+
+      <a href="#">
+        Blog
+      </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+      <a
+        href="#"
+        class="login-link"
+      >
+        Accedi
+      </a>
+
+      <a
+        href="racconta.html"
+        class="start-button"
+      >
+        Inizia
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       PAGE
+       ===================================================== -->
+
+  <main class="page">
+
+
+    <div class="eyebrow">
+      IL TUO DIARIO
+    </div>
+
+
+    <h1>
+      Quello che vivi,<br>
+      rimane con te.
+    </h1>
+
+
+    <p class="intro-text">
+      Qui ritrovi le esperienze che hai scelto
+      di conservare. Un luogo personale dove
+      tornare, rileggere e ricordare.
+    </p>
+
+
+    <div class="intro-line">
+
+      <svg
+        class="mountain"
+        viewBox="0 0 100 60"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M5 45 L30 20 L46 34 L64 12 L95 45"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+      </svg>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         DIARY
+         =================================================== -->
+
+    <div class="diary-top">
+
+      <h2 class="diary-title">
+        I miei ricordi
+      </h2>
+
+      <div
+        class="diary-count"
+        id="diaryCount"
+      >
+        Nessun ricordo ancora
+      </div>
+
+    </div>
+
+
+    <!-- EMPTY STATE -->
+
+    <section
+      class="empty-state"
+      id="emptyState"
+    >
+
+      <div class="empty-icon">
+        ♧
+      </div>
+
+      <h2>
+        Il tuo diario è ancora vuoto.
+      </h2>
+
+      <p>
+        Ogni viaggio, ogni cammino, ogni
+        momento può diventare un ricordo.
+        Quando sarai pronto, puoi iniziare
+        a raccontarlo.
+      </p>
+
+      <a
+        href="racconta.html"
+        class="primary-button"
+      >
+        Racconta una nuova esperienza
+      </a>
+
+    </section>
+
+
+
+    <!-- STORY -->
+
+    <article
+      class="story-card"
+      id="storyCard"
+      style="display:none;"
+    >
+
+      <div
+        class="story-image"
+        id="storyImage"
+      >
+
+        <div class="story-image-placeholder">
+
+          <div class="symbol">
+            ◇
+          </div>
+
+          <span>
+            Il tuo ricordo
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="story-content">
+
+        <div
+          class="story-date"
+          id="storyDate"
+        >
+          ESPERIENZA
+        </div>
+
+
+        <h2 id="storyTitle">
+          —
+        </h2>
+
+
+        <div
+          class="story-place"
+          id="storyPlace"
+        >
+          —
+        </div>
+
+
+        <p
+          class="story-excerpt"
+          id="storyExcerpt"
+        >
+          —
+        </p>
+
+
+        <div
+          class="emotion-list"
+          id="emotionList"
+        ></div>
+
+
+        <div class="story-footer">
+
+          <div
+            class="privacy"
+            id="storyPrivacy"
+          >
+            ♧ Solo io
+          </div>
+
+
+          <button
+            class="read-button"
+            id="readButton"
+            type="button"
+          >
+            Leggi il racconto →
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- FULL STORY -->
+
+    <section
+      class="full-story"
+      id="fullStory"
+    >
+
+      <h2 id="fullTitle">
+        —
+      </h2>
+
+
+      <div
+        class="full-story-meta"
+        id="fullMeta"
+      >
+        —
+      </div>
+
+
+      <div
+        class="full-story-text"
+        id="fullText"
+      >
+        —
+      </div>
+
+
+      <div
+        class="lasting"
+        id="lastingBox"
+        style="display:none;"
+      >
+
+        <span class="lasting-label">
+          Ciò che è rimasto
+        </span>
+
+        <span id="lastingText">
+          —
+        </span>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+
+      <div class="footer-brand">
+
+        <svg
+          class="brand-logo"
+          viewBox="0 0 100 60"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M5 45 L30 20 L46 34 L64 12 L95 45"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M30 20 L38 28"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="7"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+
+        <div>
+
+          <span class="brand-name">
+            ti porto con me
+          </span>
+
+          <span class="brand-subtitle">
+            RACCONTA · VIVI · TRAMANDA
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Il progetto
+        </a>
+
+        <a href="come-funziona.html">
+          Come funziona
+        </a>
+
+        <a href="racconta.html">
+          Racconta
+        </a>
+
+        <a href="diario.html">
+          Diario
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Ti Porto Con Me
+      </span>
+
+      <span>
+        Un luogo per ciò che vuoi portare con te.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /*
+     * =====================================================
+     * TPCM — DIARIO
+     *
+     * Per ora legge il racconto salvato localmente
+     * da racconta.html.
+     *
+     * In seguito sostituiremo questo punto con Supabase.
+     * =====================================================
+     */
+
+
+    const emptyState =
+      document.getElementById("emptyState");
+
+
+    const storyCard =
+      document.getElementById("storyCard");
+
+
+    const fullStory =
+      document.getElementById("fullStory");
+
+
+    const diaryCount =
+      document.getElementById("diaryCount");
+
+
+    const storyTitle =
+      document.getElementById("storyTitle");
+
+
+    const storyPlace =
+      document.getElementById("storyPlace");
+
+
+    const storyDate =
+      document.getElementById("storyDate");
+
+
+    const storyExcerpt =
+      document.getElementById("storyExcerpt");
+
+
+    const storyPrivacy =
+      document.getElementById("storyPrivacy");
+
+
+    const emotionList =
+      document.getElementById("emotionList");
+
+
+    const storyImage =
+      document.getElementById("storyImage");
+
+
+    const fullTitle =
+      document.getElementById("fullTitle");
+
+
+    const fullMeta =
+      document.getElementById("fullMeta");
+
+
+    const fullText =
+      document.getElementById("fullText");
+
+
+    const lastingBox =
+      document.getElementById("lastingBox");
+
+
+    const lastingText =
+      document.getElementById("lastingText");
+
+
+    const readButton =
+      document.getElementById("readButton");
+
+
+
+    /* =====================================================
+       FORMATTAZIONE DATA
+       ===================================================== */
+
+    function formatDate(value) {
+
+      if (!value) {
+        return "Data non indicata";
+      }
+
+      const date =
+        new Date(value + "T00:00:00");
+
+      if (Number.isNaN(date.getTime())) {
+        return value;
+      }
+
+      return date.toLocaleDateString(
+        "it-IT",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+    }
+
+
+
+    /* =====================================================
+       CARICA RACCONTO
+       ===================================================== */
+
+    function loadStory() {
+
+      const saved =
+        localStorage.getItem(
+          "tpcm_last_story"
+        );
+
+
+      if (!saved) {
+
+        emptyState.style.display =
+          "block";
+
+        storyCard.style.display =
+          "none";
+
+        diaryCount.textContent =
+          "Nessun ricordo ancora";
+
+        return;
+
+      }
+
+
+      let story;
+
+      try {
+
+        story =
+          JSON.parse(saved);
+
+      } catch (error) {
+
+        console.error(
+          "Errore nella lettura del racconto:",
+          error
+        );
+
+        emptyState.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      emptyState.style.display =
+        "none";
+
+      storyCard.style.display =
+        "grid";
+
+
+      diaryCount.textContent =
+        "1 ricordo conservato";
+
+
+      /* =================================================
+         DATI PRINCIPALI
+         ================================================= */
+
+      storyTitle.textContent =
+        story.title ||
+        "Senza titolo";
+
+
+      storyPlace.textContent =
+        story.place ||
+        "Luogo non indicato";
+
+
+      storyDate.textContent =
+        story.date
+          ? formatDate(story.date)
+          : "ESPERIENZA";
+
+
+      storyExcerpt.textContent =
+        story.story ||
+        "Non hai ancora scritto il tuo racconto.";
+
+
+      /* =================================================
+         PRIVACY
+         ================================================= */
+
+      if (
+        story.privacy ===
+        "community"
+      ) {
+
+        storyPrivacy.textContent =
+          "♡ Con la comunità";
+
+      } else {
+
+        storyPrivacy.textContent =
+          "♧ Solo io";
+
+      }
+
+
+      /* =================================================
+         EMOZIONI
+         ================================================= */
+
+      emotionList.innerHTML =
+        "";
+
+
+      if (
+        story.emotions &&
+        Object.keys(story.emotions).length
+      ) {
+
+        Object.entries(
+          story.emotions
+        ).forEach(
+          ([emotion, intensity]) => {
+
+            const tag =
+              document.createElement(
+                "span"
+              );
+
+            tag.className =
+              "emotion";
+
+            tag.textContent =
+              `${emotion} · ${intensity}/5`;
+
+            emotionList.appendChild(tag);
+
+          }
+        );
+
+      }
+
+
+
+      /* =================================================
+         FOTO
+         =================================================
+
+         La versione attuale di Racconta non salva ancora
+         la fotografia nel localStorage.
+
+         Per questo mostriamo un segnaposto elegante.
+         La fotografia verrà collegata nel prossimo step.
+         */
+
+      storyImage.innerHTML = `
+
+        <div class="story-image-placeholder">
+
+          <div class="symbol">
+            ◇
+          </div>
+
+          <span>
+            Il tuo ricordo
+          </span>
+
+        </div>
+
+      `;
+
+
+
+      /* =================================================
+         RACCONTO COMPLETO
+         ================================================= */
+
+      fullTitle.textContent =
+        story.title ||
+        "Senza titolo";
+
+
+      const metaParts = [];
+
+
+      if (story.place) {
+        metaParts.push(
+          story.place
+        );
+      }
+
+
+      if (story.date) {
+        metaParts.push(
+          formatDate(story.date)
+        );
+      }
+
+
+      fullMeta.textContent =
+        metaParts.join(" · ") ||
+        "Esperienza";
+
+
+      fullText.textContent =
+        story.story ||
+        "Non hai scritto un racconto.";
+
+
+      /* =================================================
+         PENSIERO FINALE
+         ================================================= */
+
+      if (story.lasting) {
+
+        lastingBox.style.display =
+          "block";
+
+        lastingText.textContent =
+          story.lasting;
+
+      } else {
+
+        lastingBox.style.display =
+          "none";
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       APRI / CHIUDI RACCONTO
+       ===================================================== */
+
+    readButton.addEventListener(
+      "click",
+      function () {
+
+        fullStory.classList.toggle(
+          "visible"
+        );
+
+
+        if (
+          fullStory.classList.contains(
+            "visible"
+          )
+        ) {
+
+          readButton.textContent =
+            "Chiudi il racconto ↑";
+
+
+          fullStory.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        } else {
+
+          readButton.textContent =
+            "Leggi il racconto →";
+
+        }
+
+      }
+    );
+
+
+
+    /* =====================================================
+       AVVIO
+       ===================================================== */
+
+    loadStory();
+
+  </script>
+
+
+</body>
+</html>
