@@ -1,64 +1,457 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Ti porto con me</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog — Ti porto con me</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================================
+           BLOG — STILI SPECIFICI DELLA PAGINA
+           ========================================================= */
+
+        .blog-page {
+            min-height: 100vh;
+            background: #f7f5ef;
+            color: #173f36;
+        }
+
+        .blog-hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 110px 40px 70px;
+        }
+
+        .blog-eyebrow {
+            margin: 0 0 28px;
+            color: #e56d22;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .blog-title {
+            max-width: 850px;
+            margin: 0;
+            color: #173f36;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(52px, 7vw, 92px);
+            font-weight: 400;
+            line-height: .98;
+            letter-spacing: -3px;
+        }
+
+        .blog-intro {
+            max-width: 720px;
+            margin: 35px 0 0;
+            color: #65716d;
+            font-size: 19px;
+            line-height: 1.65;
+        }
+
+        .blog-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 48px;
+        }
+
+        .blog-divider-line {
+            width: 45px;
+            height: 2px;
+            background: #e56d22;
+        }
+
+        .blog-divider-mountain {
+            color: #173f36;
+            font-size: 25px;
+            letter-spacing: -5px;
+        }
+
+        .blog-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .blog-section-label {
+            margin: 0 0 35px;
+            color: #173f36;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 34px;
+            font-weight: 400;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .blog-card {
+            overflow: hidden;
+            background: #fffdfa;
+            border: 1px solid #e7e3da;
+            border-radius: 24px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(23, 63, 54, .08);
+        }
+
+        .blog-card-top {
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e9eee9;
+        }
+
+        .blog-card-symbol {
+            color: #173f36;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 70px;
+            line-height: 1;
+        }
+
+        .blog-card-body {
+            padding: 32px 34px 36px;
+        }
+
+        .blog-card-number {
+            margin-bottom: 18px;
+            color: #e56d22;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .blog-card-title {
+            margin: 0 0 14px;
+            color: #173f36;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .blog-card-text {
+            margin: 0;
+            color: #65716d;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .blog-coming {
+            margin-top: 55px;
+            padding: 50px;
+            background: #173f36;
+            border-radius: 24px;
+            color: #fffdfa;
+        }
+
+        .blog-coming-number {
+            margin-bottom: 15px;
+            color: #e56d22;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .blog-coming-title {
+            margin: 0 0 16px;
+            color: #fffdfa;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 42px;
+            font-weight: 400;
+        }
+
+        .blog-coming-text {
+            max-width: 750px;
+            margin: 0;
+            color: rgba(255,255,255,.75);
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .blog-footer {
+            border-top: 1px solid #e2ded5;
+            padding: 35px 40px;
+            text-align: center;
+            color: #71807a;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+
+            .blog-hero {
+                padding: 80px 24px 50px;
+            }
+
+            .blog-content {
+                padding: 0 24px 80px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-title {
+                font-size: 55px;
+                letter-spacing: -2px;
+            }
+
+            .blog-coming {
+                padding: 35px 28px;
+            }
+
+            .blog-coming-title {
+                font-size: 34px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <a href="index.html" class="logo">
-      ti porto con me
-    </a>
+    <div class="blog-page">
 
-    <nav>
-      <a href="index.html">Il progetto</a>
-      <a href="index.html">Come funziona</a>
-      <a href="index.html">Albero della Vita</a>
-      <a href="diario.html">Diario</a>
-      <a href="blog.html">Blog</a>
-    </nav>
+        <!-- =====================================================
+             HEADER
+             ===================================================== -->
 
-    <div class="header-actions">
-      <a href="#" class="login">Accedi</a>
-      <a href="racconta.html" class="btn-primary">Inizia</a>
+        <header class="header">
+
+            <div class="logo">
+                <a href="index.html">
+                    <span>⌁</span>
+                    <strong>ti porto con me</strong>
+                    <small>RACCONTA · VIVI · TRAMANDA</small>
+                </a>
+            </div>
+
+            <nav>
+                <a href="index.html">Il progetto</a>
+                <a href="index.html">Come funziona</a>
+                <a href="index.html">Albero della Vita</a>
+                <a href="diario.html">Diario</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#">Accedi</a>
+                <a href="racconta.html" class="button">Inizia</a>
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             HERO BLOG
+             ===================================================== -->
+
+        <main>
+
+            <section class="blog-hero">
+
+                <p class="blog-eyebrow">
+                    IL BLOG
+                </p>
+
+                <h1 class="blog-title">
+                    Storie, pensieri<br>
+                    e tracce da portare con te.
+                </h1>
+
+                <p class="blog-intro">
+                    Un luogo per fermarsi, leggere e lasciarsi ispirare
+                    dalle esperienze degli altri. Perché alcune storie
+                    meritano di essere raccontate, anche quando il viaggio
+                    è già finito.
+                </p>
+
+                <div class="blog-divider">
+                    <div class="blog-divider-line"></div>
+                    <div class="blog-divider-mountain">⌃⌃</div>
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONTENUTO
+                 ================================================= -->
+
+            <section class="blog-content">
+
+                <h2 class="blog-section-label">
+                    Dal mondo di Ti porto con me
+                </h2>
+
+                <div class="blog-grid">
+
+                    <article class="blog-card">
+
+                        <div class="blog-card-top">
+                            <div class="blog-card-symbol">
+                                ◇
+                            </div>
+                        </div>
+
+                        <div class="blog-card-body">
+
+                            <div class="blog-card-number">
+                                01
+                            </div>
+
+                            <h3 class="blog-card-title">
+                                Il valore di un ricordo
+                            </h3>
+
+                            <p class="blog-card-text">
+                                Ci sono esperienze che finiscono quando
+                                torniamo a casa. E altre che continuano
+                                a vivere dentro di noi.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <div class="blog-card-top">
+                            <div class="blog-card-symbol">
+                                ♧
+                            </div>
+                        </div>
+
+                        <div class="blog-card-body">
+
+                            <div class="blog-card-number">
+                                02
+                            </div>
+
+                            <h3 class="blog-card-title">
+                                Perché raccontare
+                            </h3>
+
+                            <p class="blog-card-text">
+                                Raccontare ciò che abbiamo vissuto significa
+                                dare un posto alle esperienze e permettere
+                                che non vadano perdute.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <div class="blog-card-top">
+                            <div class="blog-card-symbol">
+                                ♡
+                            </div>
+                        </div>
+
+                        <div class="blog-card-body">
+
+                            <div class="blog-card-number">
+                                03
+                            </div>
+
+                            <h3 class="blog-card-title">
+                                I luoghi che ci cambiano
+                            </h3>
+
+                            <p class="blog-card-text">
+                                Una montagna, un sentiero, un rifugio,
+                                un panorama. A volte sono i luoghi a lasciare
+                                dentro di noi la traccia più profonda.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <div class="blog-card-top">
+                            <div class="blog-card-symbol">
+                                ✦
+                            </div>
+                        </div>
+
+                        <div class="blog-card-body">
+
+                            <div class="blog-card-number">
+                                04
+                            </div>
+
+                            <h3 class="blog-card-title">
+                                Ognuno ha il proprio Everest
+                            </h3>
+
+                            <p class="blog-card-text">
+                                Non tutti i viaggi hanno la stessa meta.
+                                E non tutte le conquiste si possono misurare
+                                in metri.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- =============================================
+                     PROSSIMAMENTE
+                     ============================================= -->
+
+                <div class="blog-coming">
+
+                    <div class="blog-coming-number">
+                        PRESTO QUI
+                    </div>
+
+                    <h2 class="blog-coming-title">
+                        Le storie della comunità
+                    </h2>
+
+                    <p class="blog-coming-text">
+                        Il blog di Ti porto con me raccoglierà storie,
+                        riflessioni e racconti legati ai luoghi e alle
+                        esperienze che lasciano qualcosa dentro di noi.
+                        Alcuni nasceranno dalla comunità, altri dal
+                        viaggio stesso.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="blog-footer">
+            Ti porto con me · Racconta · Vivi · Tramanda
+        </footer>
+
     </div>
-  </header>
-
-  <main>
-
-    <section class="page-intro">
-      <span class="eyebrow">IL BLOG</span>
-
-      <h1>
-        Storie, pensieri<br>
-        e tracce da portare con te.
-      </h1>
-
-      <p>
-        Un luogo per fermarsi, leggere e lasciarsi ispirare
-        dalle esperienze degli altri.
-      </p>
-    </section>
-
-    <section class="blog-placeholder">
-
-      <article class="blog-card">
-        <span class="blog-number">01</span>
-        <h2>Presto qui</h2>
-        <p>
-          Il blog di Ti porto con me raccoglierà storie,
-          riflessioni e racconti legati ai luoghi e alle esperienze
-          che lasciano qualcosa dentro di noi.
-        </p>
-      </article>
-
-    </section>
-
-  </main>
 
 </body>
 </html>
