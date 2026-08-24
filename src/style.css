@@ -26,243 +26,7 @@ textarea {
   font: inherit;
 }
 
-/* =========================================================
-   HOMEPAGE — HERO
-========================================================= */
 
-.hero {
-  min-height: calc(100vh - 90px);
-  padding: 80px 6% 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f7f4ee;
-}
-
-.hero-content {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(48px, 6vw, 82px);
-  line-height: 1.05;
-  font-weight: 400;
-  letter-spacing: -2px;
-  color: #183b32;
-}
-
-.hero-divider,
-.section-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin: 35px auto;
-  max-width: 360px;
-}
-
-.hero-divider span:first-child,
-.hero-divider span:last-child,
-.section-divider span:first-child,
-.section-divider span:last-child {
-  flex: 1;
-  height: 1px;
-  background: rgba(24, 59, 50, 0.25);
-}
-
-.hero-divider span:nth-child(2),
-.section-divider span:nth-child(2) {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
-  color: #183b32;
-}
-
-.hero-text {
-  max-width: 650px;
-  margin: 0 auto;
-  font-size: 19px;
-  line-height: 1.7;
-  color: #4a4a4a;
-}
-
-.hero-content > .action {
-  margin-top: 60px;
-}
-
-.action {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  vertical-align: top;
-  width: 220px;
-  min-height: 180px;
-  margin: 0 12px;
-  padding: 25px 20px;
-  color: #183b32;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.action:hover {
-  transform: translateY(-5px);
-}
-
-.action-icon {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 34px;
-  line-height: 1;
-  margin-bottom: 18px;
-}
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 34px;
-  line-height: 1;
-  margin-bottom: 18px;
-}
-
-.action h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 25px;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-.action p {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666;
-}
-
-.action-line {
-  width: 45px;
-  height: 1px;
-  margin-top: 18px;
-  background: #183b32;
-}
-
-.stay {
-  margin-top: 35px;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  color: #183b32;
-}
-
-/* =========================================================
-   HOMEPAGE — SPAZIO
-========================================================= */
-
-.space {
-  padding: 110px 6% 120px;
-  background: #fffdf9;
-}
-
-.space h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(38px, 4vw, 58px);
-  font-weight: 400;
-  text-align: center;
-  color: #183b32;
-}
-
-.values {
-  max-width: 1000px;
-  margin: 60px auto 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 55px 80px;
-}
-
-.value {
-  display: flex;
-  align-items: flex-start;
-  gap: 22px;
-}
-
-.value-icon {
-  flex-shrink: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  color: #183b32;
-}
-
-.value h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  color: #183b32;
-}
-
-.value p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #666;
-}
-
-/* =========================================================
-   HOMEPAGE — RESPONSIVE
-========================================================= */
-
-@media (max-width: 900px) {
-
-  .hero {
-    padding: 65px 5% 80px;
-  }
-
-  .action {
-    width: 200px;
-    margin: 0 5px;
-  }
-
-  .values {
-    gap: 45px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .hero {
-    min-height: auto;
-    padding: 55px 5% 70px;
-  }
-
-  .hero h1 {
-    font-size: 43px;
-    letter-spacing: -1px;
-  }
-
-  .hero-text {
-    font-size: 17px;
-  }
-
-  .hero-content > .action {
-    margin-top: 45px;
-  }
-
-  .action {
-    width: 100%;
-    max-width: 260px;
-    margin: 0 auto;
-  }
-
-  .stay {
-    margin-top: 20px;
-    font-size: 11px;
-  }
-
-  .space {
-    padding: 75px 5% 80px;
-  }
-
-  .values {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 45px;
-  }
-}
 /* =========================================================
    HEADER
 ========================================================= */
@@ -325,6 +89,237 @@ nav a:hover,
 
 
 /* =========================================================
+   HOMEPAGE — HERO
+========================================================= */
+
+.hero {
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  padding: 80px 6% 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f4ee;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: #183b32;
+}
+
+.hero-divider {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 360px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  margin: 35px auto;
+}
+
+.hero-divider span:first-child,
+.hero-divider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: rgba(24, 59, 50, 0.25);
+}
+
+.hero-divider span:nth-child(2) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  color: #183b32;
+}
+
+.hero-text {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+
+  font-size: 19px;
+  line-height: 1.7;
+  color: #4a4a4a;
+}
+
+
+/* =========================================================
+   HOMEPAGE — LE QUATTRO AZIONI
+========================================================= */
+
+.hero-content > .action {
+  flex: 0 0 220px;
+  width: 220px;
+  min-height: 180px;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin: 55px 5px 0;
+  padding: 25px 20px;
+
+  color: #183b32;
+  text-decoration: none;
+  text-align: center;
+
+  transition: transform 0.2s ease;
+}
+
+.hero-content > .action:hover {
+  transform: translateY(-5px);
+}
+
+.action-icon {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.action h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.action p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.action-line {
+  width: 45px;
+  height: 1px;
+  margin-top: 18px;
+  background: #183b32;
+}
+
+
+/* =========================================================
+   HOMEPAGE — FRASE FINALE
+========================================================= */
+
+.stay {
+  flex: 0 0 100%;
+  width: 100%;
+
+  display: block;
+
+  margin: 35px auto 0;
+  padding: 0;
+
+  text-align: center;
+
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #183b32;
+}
+
+
+/* =========================================================
+   HOMEPAGE — SPAZIO
+========================================================= */
+
+.space {
+  padding: 110px 6% 120px;
+  background: #fffdf9;
+}
+
+.space h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 400;
+  text-align: center;
+  color: #183b32;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 35px auto;
+  max-width: 360px;
+}
+
+.section-divider span:first-child,
+.section-divider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: rgba(24, 59, 50, 0.25);
+}
+
+.section-divider span:nth-child(2) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  color: #183b32;
+}
+
+.values {
+  max-width: 1000px;
+  margin: 60px auto 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px 80px;
+}
+
+.value {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.value-icon {
+  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  color: #183b32;
+}
+
+.value h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: #183b32;
+}
+
+.value p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+}
+
+
+/* =========================================================
    PAGINA RACCONTA
 ========================================================= */
 
@@ -335,7 +330,7 @@ nav a:hover,
 
 
 /* =========================================================
-   INTRODUZIONE
+   INTRODUZIONE RACCONTA
 ========================================================= */
 
 .racconta-intro {
@@ -388,10 +383,14 @@ nav a:hover,
 .racconto-card {
   max-width: 920px;
   margin: 0 auto;
+
   background: #fffdf9;
+
   border: 1px solid rgba(32, 60, 53, 0.10);
   border-radius: 4px;
+
   padding: 55px;
+
   box-shadow: 0 15px 45px rgba(32, 60, 53, 0.05);
 }
 
@@ -406,9 +405,11 @@ nav a:hover,
 
 .form-group > label {
   display: block;
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 23px;
   color: #183b32;
+
   margin-bottom: 12px;
 }
 
@@ -422,14 +423,21 @@ input[type="text"],
 input[type="date"],
 textarea {
   width: 100%;
+
   border: 1px solid rgba(32, 60, 53, 0.20);
   border-radius: 3px;
+
   background: #fff;
   color: #203c35;
+
   padding: 15px 17px;
   font-size: 16px;
+
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 input[type="text"]:focus,
@@ -462,6 +470,7 @@ textarea::placeholder {
 .emotions-description {
   font-size: 15px;
   color: #666;
+
   margin-top: -4px;
   margin-bottom: 18px;
 }
@@ -476,9 +485,12 @@ textarea::placeholder {
   border: 1px solid rgba(32, 60, 53, 0.20);
   background: transparent;
   color: #203c35;
+
   padding: 10px 18px;
   border-radius: 30px;
+
   cursor: pointer;
+
   transition:
     background 0.2s,
     color 0.2s,
@@ -504,9 +516,12 @@ textarea::placeholder {
 
 .intensity-area {
   display: none;
+
   margin-top: 28px;
   padding: 25px 28px;
+
   background: #f3f1eb;
+
   border-radius: 3px;
   border-left: 3px solid #183b32;
 }
@@ -531,9 +546,12 @@ textarea::placeholder {
 .emotion-intensity {
   display: grid;
   grid-template-columns: 160px 1fr;
+
   align-items: center;
   gap: 20px;
+
   padding: 13px 0;
+
   border-bottom: 1px solid rgba(32, 60, 53, 0.10);
 }
 
@@ -556,10 +574,14 @@ textarea::placeholder {
 .intensity-dot {
   width: 24px;
   height: 24px;
+
   border-radius: 50%;
   border: 1px solid rgba(32, 60, 53, 0.30);
+
   background: transparent;
+
   cursor: pointer;
+
   transition:
     background 0.2s,
     border-color 0.2s,
@@ -590,13 +612,17 @@ textarea::placeholder {
 
 .photo-upload {
   min-height: 125px;
+
   border: 1px dashed rgba(32, 60, 53, 0.30);
   background: #fcfbf7;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 14px;
   padding: 25px;
+
   transition:
     border-color 0.2s,
     background 0.2s;
@@ -619,8 +645,10 @@ textarea::placeholder {
 
 .photo-preview {
   display: none;
+
   margin-top: 20px;
   width: 100%;
+
   overflow: hidden;
   border-radius: 4px;
 }
@@ -631,9 +659,12 @@ textarea::placeholder {
 
 .photo-preview img {
   display: block;
+
   width: 100%;
   max-height: 520px;
+
   object-fit: cover;
+
   border-radius: 4px;
 }
 
@@ -645,9 +676,12 @@ textarea::placeholder {
 .privacy-note {
   display: flex;
   align-items: center;
+
   gap: 18px;
+
   padding: 23px 25px;
   margin-top: 10px;
+
   background: #f1f0eb;
   color: #35544c;
 }
@@ -671,9 +705,12 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 25px;
+
   margin-top: 45px;
   padding-top: 30px;
+
   border-top: 1px solid rgba(32, 60, 53, 0.15);
 }
 
@@ -689,12 +726,17 @@ textarea::placeholder {
 
 .primary-button {
   border: none;
+
   background: #183b32;
   color: white;
+
   padding: 17px 30px;
   border-radius: 12px;
+
   font-size: 16px;
+
   cursor: pointer;
+
   transition:
     background 0.2s,
     transform 0.15s;
@@ -712,11 +754,15 @@ textarea::placeholder {
 
 footer {
   min-height: 100px;
+
   padding: 25px 6%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 30px;
+
   background: #183b32;
   color: white;
 }
@@ -772,6 +818,21 @@ footer {
     padding: 0 5%;
   }
 
+  .hero {
+    padding: 65px 5% 80px;
+  }
+
+  .hero-content > .action {
+    flex: 0 0 200px;
+    width: 200px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .values {
+    gap: 45px;
+  }
+
   .racconta-page {
     padding: 50px 5% 70px;
   }
@@ -821,6 +882,77 @@ footer {
   .header-actions .button {
     padding: 11px 18px;
   }
+
+
+  /* HERO MOBILE */
+
+  .hero {
+    min-height: auto;
+    padding: 55px 5% 70px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    flex: none;
+    width: 100%;
+
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .hero-divider {
+    flex: none;
+    width: 100%;
+
+    margin: 30px auto;
+  }
+
+  .hero-text {
+    flex: none;
+    width: 100%;
+
+    font-size: 17px;
+  }
+
+  .hero-content > .action {
+    flex: none;
+
+    width: 100%;
+    max-width: 260px;
+
+    margin: 20px auto 0;
+  }
+
+  .stay {
+    flex: none;
+
+    width: 100%;
+
+    margin-top: 35px;
+
+    font-size: 11px;
+  }
+
+
+  /* SPAZIO MOBILE */
+
+  .space {
+    padding: 75px 5% 80px;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 45px;
+  }
+
+
+  /* RACCONTA MOBILE */
 
   .racconta-page {
     padding: 40px 5% 60px;
@@ -906,6 +1038,9 @@ footer {
     text-align: center;
   }
 
+
+  /* FOOTER MOBILE */
+
   footer {
     padding: 30px 6%;
     flex-direction: column;
@@ -923,113 +1058,4 @@ footer {
   .copyright {
     white-space: normal;
   }
-}
-/* =========================================================
-   FIX HOMEPAGE — CENTRATURA E LAYOUT
-========================================================= */
-
-.hero {
-  width: 100%;
-  min-height: calc(100vh - 90px);
-  padding: 80px 6% 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-content {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero h1 {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.hero-text {
-  width: 100%;
-  max-width: 650px;
-  margin: 25px auto 0;
-}
-
-.hero-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  width: 100%;
-  max-width: 260px;
-  margin: 35px auto 0;
-}
-
-.hero-content .action {
-  display: inline-flex;
-  vertical-align: top;
-  width: 220px;
-  margin: 55px 5px 0;
-  text-align: left;
-}
-
-.stay {
-  text-align: center;
-  margin-top: 45px;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    padding: 65px 5% 80px;
-  }
-
-  .hero-content .action {
-    width: 200px;
-    margin-left: 3px;
-    margin-right: 3px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero {
-    min-height: auto;
-    padding: 55px 5% 70px;
-  }
-
-  .hero-content .action {
-    display: flex;
-    width: 100%;
-    max-width: 260px;
-    margin: 20px auto 0;
-  }
-
-  .stay {
-    margin-top: 35px;
-  }
-}
-/* =========================================================
-   HERO — POSIZIONAMENTO SEZIONI
-   ========================================================= */
-
-.hero-content {
-  text-align: center;
-}
-
-/* Le quattro azioni rimangono sulla stessa riga */
-.hero-content > .action {
-  display: inline-flex;
-  vertical-align: top;
-  width: 220px;
-  min-height: 180px;
-  margin: 25px 5px 0;
-  padding: 25px 20px;
-  box-sizing: border-box;
-}
-
-/* La frase deve stare sotto le quattro sezioni */
-.hero-content > .stay {
-  display: block;
-  width: 100%;
-  margin: 45px auto 0;
-  text-align: center;
-  clear: both;
 }
