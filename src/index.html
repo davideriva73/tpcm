@@ -8,7 +8,231 @@
   <title>Ti Porto Con Me</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- =========================================================
+       HOMEPAGE — OVERRIDE DEFINITIVO
+       ========================================================= -->
+
+  <style>
+
+    /* ---------------------------------------------------------
+       HERO
+       --------------------------------------------------------- */
+
+    .hero-content {
+      display: block !important;
+      width: 100% !important;
+      max-width: 1180px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    .hero h1 {
+      display: block !important;
+      width: 100% !important;
+      max-width: 1000px !important;
+      margin: 0 auto !important;
+    }
+
+    .hero-divider {
+      display: flex !important;
+      margin: 35px auto !important;
+    }
+
+    .hero-text {
+      display: block !important;
+      width: 100% !important;
+      max-width: 650px !important;
+      margin: 0 auto !important;
+    }
+
+
+    /* ---------------------------------------------------------
+       LE QUATTRO AZIONI
+       --------------------------------------------------------- */
+
+    .hero-actions {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: flex-start !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 1050px !important;
+      margin: 55px auto 0 !important;
+      padding: 0 !important;
+      gap: 10px !important;
+    }
+
+    .hero-actions .action {
+      display: flex !important;
+      flex: 1 1 0 !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+
+      width: auto !important;
+      max-width: none !important;
+      min-height: 180px !important;
+
+      margin: 0 !important;
+      padding: 25px 15px !important;
+
+      box-sizing: border-box !important;
+
+      color: #183b32 !important;
+      text-decoration: none !important;
+      text-align: center !important;
+
+      border: none !important;
+      background: transparent !important;
+
+      transition: transform 0.2s ease !important;
+    }
+
+    .hero-actions .action:hover {
+      transform: translateY(-5px) !important;
+    }
+
+    .hero-actions .action-icon {
+      display: block !important;
+
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 34px !important;
+      line-height: 1 !important;
+
+      margin: 0 0 18px !important;
+
+      color: #183b32 !important;
+    }
+
+    .hero-actions .action h3 {
+      display: block !important;
+
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 25px !important;
+      font-weight: 400 !important;
+      line-height: 1.2 !important;
+
+      margin: 0 0 10px !important;
+
+      color: #183b32 !important;
+    }
+
+    .hero-actions .action p {
+      display: block !important;
+
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 15px !important;
+      line-height: 1.5 !important;
+
+      margin: 0 !important;
+
+      color: #666 !important;
+    }
+
+    .hero-actions .action-line {
+      display: block !important;
+
+      width: 45px !important;
+      height: 1px !important;
+
+      margin: 18px auto 0 !important;
+
+      background: #183b32 !important;
+    }
+
+
+    /* ---------------------------------------------------------
+       FRASE FINALE
+       --------------------------------------------------------- */
+
+    .hero-content > .stay {
+      display: block !important;
+
+      width: 100% !important;
+      max-width: none !important;
+
+      margin: 45px auto 0 !important;
+      padding: 0 !important;
+
+      clear: none !important;
+
+      text-align: center !important;
+
+      font-size: 13px !important;
+      letter-spacing: 1.5px !important;
+
+      color: #183b32 !important;
+    }
+
+
+    /* ---------------------------------------------------------
+       TABLET
+       --------------------------------------------------------- */
+
+    @media (max-width: 900px) {
+
+      .hero-actions {
+        max-width: 600px !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+      }
+
+      .hero-actions .action {
+        flex: 0 0 calc(50% - 10px) !important;
+        width: calc(50% - 10px) !important;
+      }
+
+    }
+
+
+    /* ---------------------------------------------------------
+       MOBILE
+       --------------------------------------------------------- */
+
+    @media (max-width: 600px) {
+
+      .hero-content {
+        display: block !important;
+      }
+
+      .hero-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-top: 35px !important;
+        gap: 0 !important;
+      }
+
+      .hero-actions .action {
+        flex: none !important;
+
+        display: flex !important;
+
+        width: 100% !important;
+        max-width: 260px !important;
+
+        min-height: 160px !important;
+
+        margin: 0 auto !important;
+        padding: 20px 15px !important;
+      }
+
+      .hero-content > .stay {
+        margin-top: 20px !important;
+        font-size: 11px !important;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
@@ -23,12 +247,14 @@
       <span>ti porto con me</span>
     </div>
 
+
     <nav>
       <a href="#">Come funziona</a>
       <a href="#">Albero della Vita</a>
       <a href="diario.html">Diario</a>
       <a href="blog.html">Blog</a>
     </nav>
+
 
     <div class="header-actions">
       <a href="#">Accedi</a>
@@ -39,22 +265,29 @@
 
 
   <!-- =========================================================
-       CONTENUTO PRINCIPALE
+       MAIN
        ========================================================= -->
 
   <main>
 
-    <!-- HERO -->
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
 
     <section class="hero">
 
       <div class="hero-content">
+
+
+        <!-- TITOLO -->
 
         <h1>
           Ognuno ha il proprio Everest.<br>
           Ognuno ha bisogno del suo tempo.
         </h1>
 
+
+        <!-- SEPARATORE -->
 
         <div class="hero-divider">
           <span></span>
@@ -63,6 +296,8 @@
         </div>
 
 
+        <!-- TESTO -->
+
         <p class="hero-text">
           Un luogo dove raccogliere ciò che vivi,<br>
           scoprire ciò che hanno vissuto gli altri<br>
@@ -70,11 +305,14 @@
         </p>
 
 
-        <!-- =====================================================
+        <!-- ===================================================
              QUATTRO AZIONI
-             ===================================================== -->
+             =================================================== -->
 
         <div class="hero-actions">
+
+
+          <!-- RACCONTA -->
 
           <a href="racconta.html" class="action">
 
@@ -92,6 +330,8 @@
           </a>
 
 
+          <!-- CERCA -->
+
           <a href="#" class="action">
 
             <div class="action-icon">⌕</div>
@@ -107,6 +347,8 @@
 
           </a>
 
+
+          <!-- ISPIRATI -->
 
           <a href="#" class="action">
 
@@ -124,6 +366,8 @@
           </a>
 
 
+          <!-- CURIOSA -->
+
           <a href="#" class="action">
 
             <div class="action-icon">♧</div>
@@ -139,16 +383,16 @@
 
           </a>
 
+
         </div>
 
 
-        <!-- =====================================================
-             FRASE FINALE
-             ===================================================== -->
+        <!-- FRASE FINALE -->
 
         <div class="stay">
           ♧ &nbsp; PUOI ANCHE SEMPLICEMENTE STARE QUI.
         </div>
+
 
       </div>
 
@@ -156,12 +400,13 @@
 
 
     <!-- =========================================================
-         SEZIONE VALORI
+         SPAZIO
          ========================================================= -->
 
     <section class="space">
 
       <h2>TPCM è uno spazio per te</h2>
+
 
       <div class="section-divider">
         <span></span>
@@ -255,9 +500,11 @@
       ti porto con me
     </div>
 
+
     <div class="copyright">
       © 2026 Ti Porto Con Me
     </div>
+
 
     <div class="footer-links">
       <a href="#">Il progetto</a>
@@ -265,6 +512,7 @@
       <a href="diario.html">Diario</a>
       <a href="#">Contattaci</a>
     </div>
+
 
     <div class="social">
       ◎ &nbsp; ●
