@@ -90,12 +90,7 @@ textarea {
 }
 
 .hero-content > .action {
-  display: block;
-  width: auto;
-  min-height: 0;
-  margin: 35px auto 0;
-  padding: 0;
-  text-align: center;
+  margin-top: 60px;
 }
 
 .action {
@@ -117,6 +112,11 @@ textarea {
 }
 
 .action-icon {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
   font-family: Georgia, "Times New Roman", serif;
   font-size: 34px;
   line-height: 1;
@@ -936,7 +936,6 @@ footer {
   align-items: center;
   justify-content: center;
 }
-
 .hero-content {
   width: 100%;
   max-width: 1180px;
@@ -1006,4 +1005,31 @@ footer {
   .stay {
     margin-top: 35px;
   }
+}
+/* =========================================================
+   HERO — POSIZIONAMENTO SEZIONI
+   ========================================================= */
+
+.hero-content {
+  text-align: center;
+}
+
+/* Le quattro azioni rimangono sulla stessa riga */
+.hero-content > .action {
+  display: inline-flex;
+  vertical-align: top;
+  width: 220px;
+  min-height: 180px;
+  margin: 55px 5px 0;
+  padding: 25px 20px;
+  box-sizing: border-box;
+}
+
+/* La frase deve stare sotto le quattro sezioni */
+.hero-content > .stay {
+  display: block;
+  width: 100%;
+  margin: 45px auto 0;
+  text-align: center;
+  clear: both;
 }
