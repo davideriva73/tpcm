@@ -1060,3 +1060,61 @@ footer {
     white-space: normal;
   }
 }
+/* =========================================================
+   FIX DEFINITIVO HOMEPAGE
+   POSIZIONAMENTO AZIONI E FRASE FINALE
+   ========================================================= */
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content > .action {
+  display: inline-flex !important;
+  vertical-align: top;
+  width: 220px !important;
+  min-height: 180px;
+  margin: 55px 5px 0 !important;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.hero-content > .stay {
+  display: block !important;
+  width: 100% !important;
+  margin: 45px auto 0 !important;
+  text-align: center !important;
+  clear: both;
+}
+
+/* Desktop: quattro sezioni sulla stessa riga */
+@media (min-width: 901px) {
+  .hero-content > .action {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero-content > .action {
+    width: 200px !important;
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+  }
+}
+
+/* Smartphone */
+@media (max-width: 600px) {
+  .hero-content > .action {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 260px;
+    margin: 20px auto 0 !important;
+  }
+
+  .hero-content > .stay {
+    margin-top: 35px !important;
+  }
+}
