@@ -26,7 +26,238 @@ textarea {
   font: inherit;
 }
 
+/* =========================================================
+   HOMEPAGE — HERO
+========================================================= */
 
+.hero {
+  min-height: calc(100vh - 90px);
+  padding: 80px 6% 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f4ee;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: #183b32;
+}
+
+.hero-divider,
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 35px auto;
+  max-width: 360px;
+}
+
+.hero-divider span:first-child,
+.hero-divider span:last-child,
+.section-divider span:first-child,
+.section-divider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: rgba(24, 59, 50, 0.25);
+}
+
+.hero-divider span:nth-child(2),
+.section-divider span:nth-child(2) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  color: #183b32;
+}
+
+.hero-text {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #4a4a4a;
+}
+
+.hero-content > .action {
+  margin-top: 60px;
+}
+
+.action {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: top;
+  width: 220px;
+  min-height: 180px;
+  margin: 0 12px;
+  padding: 25px 20px;
+  color: #183b32;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.action:hover {
+  transform: translateY(-5px);
+}
+
+.action-icon {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.action h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.action p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.action-line {
+  width: 45px;
+  height: 1px;
+  margin-top: 18px;
+  background: #183b32;
+}
+
+.stay {
+  margin-top: 35px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #183b32;
+}
+
+/* =========================================================
+   HOMEPAGE — SPAZIO
+========================================================= */
+
+.space {
+  padding: 110px 6% 120px;
+  background: #fffdf9;
+}
+
+.space h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 400;
+  text-align: center;
+  color: #183b32;
+}
+
+.values {
+  max-width: 1000px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px 80px;
+}
+
+.value {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.value-icon {
+  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  color: #183b32;
+}
+
+.value h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: #183b32;
+}
+
+.value p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* =========================================================
+   HOMEPAGE — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding: 65px 5% 80px;
+  }
+
+  .action {
+    width: 200px;
+    margin: 0 5px;
+  }
+
+  .values {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: auto;
+    padding: 55px 5% 70px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .hero-text {
+    font-size: 17px;
+  }
+
+  .hero-content > .action {
+    margin-top: 45px;
+  }
+
+  .action {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .stay {
+    margin-top: 20px;
+    font-size: 11px;
+  }
+
+  .space {
+    padding: 75px 5% 80px;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 45px;
+  }
+}
 /* =========================================================
    HEADER
 ========================================================= */
