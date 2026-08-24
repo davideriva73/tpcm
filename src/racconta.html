@@ -2,143 +2,62 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Racconta | Ti Porto Con Me</title>
-
-  <meta
-    name="description"
-    content="Racconta un'esperienza, conserva ciò che hai vissuto e portalo con te."
-  >
+  <meta name="description" content="Racconta un'esperienza, conserva ciò che hai vissuto e portalo con te.">
 
   <style>
-
-    /* =========================================================
-       TPCM — RACCONTA
-       VERSIONE COMPLETA
-       ========================================================= */
-
     :root {
-      --cream: #f7f4ee;
-      --cream-light: #fbfaf7;
+      --bg: #f7f4ee;
       --paper: #fffdfa;
-
       --green: #183b32;
       --green-soft: #31574c;
-      --green-light: #e8eee9;
-
-      --orange: #d96b2b;
-      --orange-light: #f5e3d5;
-
       --text: #203c35;
-      --text-soft: #5d6863;
-      --border: #dddcd5;
-
-      --shadow:
-        0 12px 35px rgba(24, 59, 50, 0.08);
-
-      --radius: 16px;
-      --radius-small: 10px;
+      --muted: #68736e;
+      --line: #d9d8d0;
+      --orange: #d96b2b;
+      --focus: rgba(24, 59, 50, .08);
     }
 
-
-    /* =========================================================
-       RESET
-       ========================================================= */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      min-height: 100vh;
+      background: var(--bg);
       color: var(--text);
-      background: var(--cream);
-
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.5;
     }
 
-    button,
-    input,
-    textarea {
-      font-family: inherit;
-    }
-
-
-    /* =========================================================
-       HEADER
-       ========================================================= */
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
 
     header {
-      height: 88px;
-
+      height: 70px;
+      padding: 0 5.5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding: 0 5.5%;
-
-      background: rgba(247, 244, 238, 0.96);
-
-      border-bottom: 1px solid rgba(32, 60, 53, 0.08);
-
-      position: sticky;
-      top: 0;
-      z-index: 100;
-
-      backdrop-filter: blur(10px);
+      background: var(--bg);
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 13px;
-
-      text-decoration: none;
       color: var(--green);
+      text-decoration: none;
+      flex-shrink: 0;
     }
 
-    .brand-logo {
-      width: 48px;
-      height: 32px;
-
-      display: block;
-    }
+    .brand-logo { width: 27px; height: 22px; display: block; }
 
     .brand-name {
       font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 25px;
-
-      letter-spacing: -0.4px;
-    }
-
-    .brand-subtitle {
-      display: block;
-
-      font-family: Arial, Helvetica, sans-serif;
-
-      font-size: 7px;
-
-      letter-spacing: 2.3px;
-
-      margin-top: 2px;
-
-      color: var(--text-soft);
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -.5px;
     }
 
     nav {
@@ -147,2833 +66,944 @@
       gap: 32px;
     }
 
-    nav a {
+    nav a, .login-link {
       color: var(--text);
-
       text-decoration: none;
-
       font-size: 14px;
-
-      transition: color 0.2s ease;
+      transition: color .2s ease;
     }
 
-    nav a:hover {
-      color: var(--orange);
-    }
+    nav a:hover, .login-link:hover { color: var(--green-soft); }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 20px;
-    }
-
-    .login-link {
-      color: var(--text);
-
-      text-decoration: none;
-
-      font-size: 14px;
+      gap: 24px;
     }
 
     .start-button {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
-      padding: 12px 22px;
-
-      background: var(--orange);
-
-      color: white;
-
+      min-width: 80px;
+      padding: 13px 21px;
+      border-radius: 12px;
+      background: var(--green);
+      color: #fff;
       text-decoration: none;
-
-      border-radius: 10px;
-
       font-size: 14px;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
     }
 
-    .start-button:hover {
-      background: #c75e24;
-      transform: translateY(-1px);
-    }
-
-
-    /* =========================================================
-       PAGE INTRO
-       ========================================================= */
-
-    .page-intro {
-      max-width: 1180px;
-
+    .intro {
+      width: min(1180px, 89%);
       margin: 0 auto;
-
-      padding: 72px 32px 42px;
-
-      position: relative;
+      padding: 88px 0 55px;
     }
 
     .eyebrow {
-      color: var(--orange);
-
-      font-size: 12px;
-
-      font-weight: 600;
-
+      margin-bottom: 20px;
+      color: var(--green-soft);
+      font-size: 11px;
       letter-spacing: 2px;
-
       text-transform: uppercase;
-
-      margin-bottom: 18px;
     }
 
-    .page-intro h1 {
-      max-width: 720px;
-
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: clamp(45px, 5vw, 68px);
-
-      font-weight: 400;
-
-      line-height: 1.04;
-
-      letter-spacing: -2px;
-
+    .intro h1 {
+      max-width: 820px;
       color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(54px, 6vw, 88px);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -3px;
     }
 
-    .intro-text {
-      max-width: 600px;
-
-      margin-top: 22px;
-
-      color: var(--text-soft);
-
+    .intro-copy {
+      max-width: 610px;
+      margin-top: 28px;
+      color: var(--muted);
       font-size: 17px;
-
       line-height: 1.7;
     }
 
-    .intro-line {
+    .divider {
       display: flex;
-
       align-items: center;
-
-      gap: 10px;
-
-      margin-top: 28px;
+      gap: 12px;
+      width: 330px;
+      margin-top: 32px;
     }
 
-    .intro-line::before {
-      content: "";
-
-      width: 34px;
-
-      height: 2px;
-
-      background: var(--orange);
+    .divider span {
+      height: 1px;
+      flex: 1;
+      background: var(--line);
     }
 
-    .intro-mountain {
-      width: 30px;
-      height: 18px;
-    }
+    .mountain { color: var(--green); font-size: 12px; }
 
-
-    /* =========================================================
-       MAIN CARD
-       ========================================================= */
-
-    .form-wrapper {
-      max-width: 1180px;
-
+    .form-wrap {
+      width: min(1180px, 89%);
       margin: 0 auto;
-
-      padding: 0 32px 80px;
+      padding-bottom: 100px;
     }
 
-    .form-card {
+    .story-form {
       background: var(--paper);
-
-      border: 1px solid rgba(32, 60, 53, 0.08);
-
+      border: 1px solid rgba(24, 59, 50, .08);
       border-radius: 18px;
-
-      box-shadow: var(--shadow);
-
       overflow: hidden;
+      box-shadow: 0 18px 50px rgba(24, 59, 50, .06);
     }
 
-
-    /* =========================================================
-       FORM SECTIONS
-       ========================================================= */
-
-    .form-section {
+    .section {
       display: grid;
-
       grid-template-columns: 220px 1fr;
-
-      gap: 42px;
-
-      padding: 42px 44px;
-
-      border-bottom: 1px solid var(--border);
+      gap: 48px;
+      padding: 48px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .form-section:last-child {
-      border-bottom: none;
-    }
-
-    .section-label {
-      position: relative;
-    }
+    .section:last-of-type { border-bottom: 0; }
 
     .section-number {
-      width: 34px;
-      height: 34px;
-
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: var(--green);
-
-      color: white;
-
-      font-size: 13px;
-
-      margin-bottom: 13px;
+      color: var(--green-soft);
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
     }
 
-    .section-label h2 {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 23px;
-
-      font-weight: 400;
-
-      line-height: 1.2;
-
+    .section h2 {
       color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29px;
+      font-weight: 400;
+      line-height: 1.15;
     }
 
     .section-label p {
-      margin-top: 9px;
-
-      color: var(--text-soft);
-
+      max-width: 180px;
+      margin-top: 12px;
+      color: var(--muted);
       font-size: 13px;
-
-      line-height: 1.55;
-
-      max-width: 175px;
     }
 
-    .leaf {
-      margin-top: 15px;
+    .field { margin-bottom: 25px; }
+    .field:last-child { margin-bottom: 0; }
 
-      color: var(--orange);
-
-      font-size: 19px;
-    }
-
-
-    /* =========================================================
-       INPUTS
-       ========================================================= */
-
-    .field {
-      margin-bottom: 22px;
-    }
-
-    .field:last-child {
-      margin-bottom: 0;
-    }
-
-    label {
+    .field-label {
       display: block;
-
-      margin-bottom: 8px;
-
-      font-size: 13px;
-
-      font-weight: 600;
-
+      margin-bottom: 9px;
       color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .required {
-      color: var(--orange);
-    }
+    .required { color: var(--orange); }
 
     input[type="text"],
     input[type="date"],
     textarea {
       width: 100%;
-
-      border: 1px solid #d7d6ce;
-
+      border: 1px solid #d3d4ce;
+      border-radius: 9px;
       background: #fffefa;
-
-      border-radius: 8px;
-
-      padding: 13px 14px;
-
       color: var(--text);
-
-      font-size: 14px;
-
+      padding: 14px 15px;
       outline: none;
-
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
 
     input[type="text"]:focus,
     input[type="date"]:focus,
     textarea:focus {
       border-color: var(--green);
-
-      box-shadow:
-        0 0 0 3px rgba(24, 59, 50, 0.08);
+      box-shadow: 0 0 0 3px var(--focus);
     }
 
     textarea {
-      min-height: 145px;
-
+      min-height: 180px;
       resize: vertical;
-
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    .field-grid {
+    .grid-2 {
       display: grid;
-
-      grid-template-columns: 1.4fr 0.7fr;
-
+      grid-template-columns: 1fr 220px;
       gap: 20px;
     }
 
-    .field-note {
+    .upload {
+      min-height: 190px;
+      padding: 30px;
       display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      margin-top: 9px;
-
-      color: var(--text-soft);
-
-      font-size: 11px;
-    }
-
-
-    /* =========================================================
-       PHOTO UPLOAD
-       ========================================================= */
-
-    .upload-area {
-      border: 1.5px dashed #c9ccc7;
-
-      background: #faf9f5;
-
-      border-radius: 10px;
-
-      min-height: 150px;
-
-      display: flex;
-
       align-items: center;
       justify-content: center;
-
       text-align: center;
-
-      padding: 25px;
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
+      border: 1.5px dashed #c8cbc5;
+      border-radius: 11px;
+      background: #faf9f5;
+      transition: border-color .2s ease, background .2s ease;
     }
 
-    .upload-area.dragover {
-      border-color: var(--orange);
-
-      background: var(--orange-light);
-    }
-
-    .upload-inner {
-      max-width: 420px;
-    }
-
-    .upload-icon {
-      width: 42px;
-      height: 42px;
-
-      margin: 0 auto 12px;
-
-      color: var(--green);
+    .upload.dragover {
+      border-color: var(--green);
+      background: #f0f3ef;
     }
 
     .upload-title {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 18px;
-
       color: var(--green);
-
-      margin-bottom: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
     }
 
-    .upload-description {
+    .upload-copy {
+      margin: 7px 0 16px;
+      color: var(--muted);
       font-size: 13px;
-
-      color: var(--text-soft);
-
-      margin-bottom: 15px;
     }
 
-    .upload-button {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background: var(--green);
-
-      color: white;
-
-      border: none;
-
+    .upload-button,
+    .save {
+      border: 0;
       border-radius: 8px;
-
       padding: 11px 18px;
-
-      font-size: 13px;
-
+      background: var(--green);
+      color: #fff;
       cursor: pointer;
-
-      transition: background 0.2s ease;
+      font-size: 13px;
     }
 
-    .upload-button:hover {
-      background: #244c41;
-    }
+    #photoInput { display: none; }
 
-    .upload-info {
-      margin-top: 9px;
-
-      color: var(--text-soft);
-
-      font-size: 11px;
-    }
-
-    #photoInput {
+    .preview {
       display: none;
-    }
-
-    .photo-preview {
-      display: none;
-
       margin-top: 18px;
-
       position: relative;
-
-      max-width: 520px;
+      max-width: 560px;
     }
 
-    .photo-preview img {
+    .preview img {
       display: block;
-
       width: 100%;
-
-      max-height: 340px;
-
+      max-height: 360px;
       object-fit: cover;
-
       border-radius: 10px;
-
-      border: 1px solid var(--border);
     }
 
     .remove-photo {
       position: absolute;
-
       top: 10px;
       right: 10px;
-
-      width: 30px;
-      height: 30px;
-
-      border: none;
-
+      width: 32px;
+      height: 32px;
+      border: 0;
       border-radius: 50%;
-
-      background: white;
-
+      background: #fff;
       color: var(--green);
-
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-
       cursor: pointer;
-
-      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.15);
     }
 
-    .photo-actions {
-      display: flex;
-
-      gap: 18px;
-
-      margin-top: 8px;
-    }
-
-    .photo-actions button {
-      border: none;
-
-      background: transparent;
-
-      color: var(--text-soft);
-
-      text-decoration: underline;
-
-      cursor: pointer;
-
-      font-size: 12px;
-    }
-
-    .photo-actions button:last-child {
-      color: var(--orange);
-    }
-
-
-    /* =========================================================
-       EMOTIONS
-       ========================================================= */
-
-    .emotion-intro {
-      color: var(--text-soft);
-
+    .emotion-copy {
+      margin-bottom: 18px;
+      color: var(--muted);
       font-size: 14px;
-
-      margin-bottom: 15px;
     }
 
-    .emotion-list {
+    .emotions {
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 9px;
     }
 
-    .emotion-button {
-      border: 1px solid #d6d9d5;
-
-      background: #fffefa;
-
-      color: var(--text);
-
+    .emotion {
+      border: 1px solid #d2d6d2;
       border-radius: 24px;
-
       padding: 10px 16px;
-
-      font-size: 13px;
-
+      background: #fffefa;
+      color: var(--text);
       cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.15s ease;
+      transition: .2s ease;
     }
 
-    .emotion-button:hover {
+    .emotion:hover { border-color: var(--green-soft); }
+
+    .emotion.selected {
       border-color: var(--green);
-
-      transform: translateY(-1px);
-    }
-
-    .emotion-button.selected {
       background: var(--green);
-
-      border-color: var(--green);
-
-      color: white;
+      color: #fff;
     }
 
-
-    /* =========================================================
-       INTENSITY
-       ========================================================= */
-
-    .intensity-panel {
+    .intensity {
       display: none;
-
-      margin-top: 26px;
-
+      margin-top: 25px;
       padding: 24px;
-
-      background: #f3f1eb;
-
       border-left: 3px solid var(--green);
-
       border-radius: 0 10px 10px 0;
+      background: #f2f1eb;
     }
 
-    .intensity-panel.visible {
-      display: block;
-    }
+    .intensity.visible { display: block; }
 
-    .intensity-title {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 21px;
-
+    .intensity h3 {
+      margin-bottom: 17px;
       color: var(--green);
-
-      margin-bottom: 4px;
-    }
-
-    .intensity-description {
-      color: var(--text-soft);
-
-      font-size: 13px;
-
-      margin-bottom: 23px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 400;
     }
 
     .intensity-row {
       display: grid;
-
-      grid-template-columns: 125px 1fr 45px;
-
+      grid-template-columns: 130px 1fr 30px;
       align-items: center;
-
-      gap: 18px;
-
-      margin-bottom: 17px;
+      gap: 14px;
+      margin-bottom: 13px;
     }
 
-    .intensity-row:last-child {
-      margin-bottom: 0;
-    }
+    .dots { display: flex; gap: 7px; }
 
-    .intensity-name {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 16px;
-
-      color: var(--green);
-    }
-
-    .intensity-control {
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-    }
-
-    .intensity-dot {
-      width: 30px;
-      height: 30px;
-
+    .dot {
+      width: 25px;
+      height: 25px;
+      border: 1px solid #c7cec9;
       border-radius: 50%;
-
-      border: 1px solid #c9d0cc;
-
       background: transparent;
-
       cursor: pointer;
-
-      transition: all 0.15s ease;
     }
 
-    .intensity-dot.active {
-      background: var(--green);
-
+    .dot.active {
       border-color: var(--green);
+      background: var(--green);
     }
 
-    .intensity-value {
-      font-size: 12px;
-
-      color: var(--text-soft);
-
-      text-align: right;
-    }
-
-
-    /* =========================================================
-       LASTING THOUGHT
-       ========================================================= */
-
-    .optional {
-      color: var(--text-soft);
-
-      font-weight: normal;
-    }
-
-
-    /* =========================================================
-       PRIVACY
-       ========================================================= */
-
-    .privacy-options {
+    .privacy {
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 14px;
     }
 
     .privacy-option {
-      border: 1px solid var(--border);
-
-      background: #fffefa;
-
+      padding: 22px;
+      border: 1px solid var(--line);
       border-radius: 10px;
-
-      padding: 20px;
-
+      background: #fffefa;
       cursor: pointer;
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
     }
 
     .privacy-option.selected {
       border-color: var(--green);
-
-      background: #f4f6f1;
+      background: #f2f5f1;
     }
 
-    .privacy-option input {
-      display: none;
-    }
-
-    .privacy-icon {
-      font-size: 28px;
-
-      margin-bottom: 10px;
-    }
+    .privacy-option input { display: none; }
 
     .privacy-option h3 {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 17px;
-
-      font-weight: 400;
-
+      margin-bottom: 6px;
       color: var(--green);
-
-      margin-bottom: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 400;
     }
 
     .privacy-option p {
-      color: var(--text-soft);
-
+      color: var(--muted);
       font-size: 12px;
-
-      line-height: 1.5;
     }
 
     .privacy-note {
       margin-top: 14px;
-
-      padding: 13px 16px;
-
-      background: #f1efe9;
-
+      padding: 14px 16px;
       border-radius: 8px;
-
-      color: var(--text-soft);
-
+      background: #f1efe9;
+      color: var(--muted);
       font-size: 12px;
     }
 
-
-    /* =========================================================
-       SUMMARY
-       ========================================================= */
-
     .summary {
-      margin-top: 25px;
-
-      border: 1px dashed #c8c7bd;
-
+      margin-top: 28px;
+      padding: 24px;
+      border: 1px dashed #c7c6bd;
       border-radius: 10px;
-
-      padding: 22px;
     }
 
     .summary h3 {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 18px;
-
-      font-weight: 400;
-
-      color: var(--green);
-
       margin-bottom: 18px;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 400;
     }
 
     .summary-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
     .summary-item span {
       display: block;
-
-      color: var(--text-soft);
-
-      font-size: 11px;
-
       margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 11px;
     }
 
     .summary-item strong {
       display: block;
-
-      font-size: 13px;
-
-      font-weight: 500;
-
       color: var(--green);
+      font-size: 13px;
+      font-weight: 500;
+      word-break: break-word;
     }
 
-
-    /* =========================================================
-       ACTIONS
-       ========================================================= */
-
-    .form-actions {
+    .actions {
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 20px;
-
-      padding: 34px 44px 42px;
+      padding: 34px 48px 42px;
     }
 
-    .back-button {
+    .back {
       color: var(--text);
-
       text-decoration: none;
-
       font-size: 14px;
     }
 
-    .save-button {
-      border: none;
-
-      background: var(--orange);
-
-      color: white;
-
+    .save {
       border-radius: 10px;
-
       padding: 15px 28px;
-
       font-size: 15px;
-
-      cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease;
     }
 
-    .save-button:hover {
-      background: #c75e24;
-
-      transform: translateY(-1px);
+    .save:hover,
+    .upload-button:hover,
+    .start-button:hover {
+      background: #244c41;
     }
 
-    .save-note {
-      text-align: right;
-
-      margin-top: -28px;
-
-      padding: 0 44px 25px;
-
-      color: var(--text-soft);
-
-      font-size: 11px;
-    }
-
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    footer {
-      background: var(--green);
-
-      color: white;
-
-      padding: 30px 5.5%;
-    }
-
-    .footer-inner {
-      max-width: 1250px;
-
-      margin: 0 auto;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 30px;
-    }
-
-    .footer-brand {
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-    }
-
-    .footer-brand .brand-name {
-      color: white;
-
-      font-size: 20px;
-    }
-
-    .footer-brand .brand-subtitle {
-      color: rgba(255,255,255,0.65);
-    }
-
-    .footer-links {
-      display: flex;
-
-      gap: 28px;
-    }
-
-    .footer-links a {
-      color: white;
-
-      text-decoration: none;
-
-      font-size: 13px;
-
-      opacity: 0.9;
-    }
-
-    .footer-social {
-      display: flex;
-
-      gap: 12px;
-    }
-
-    .social-circle {
-      width: 32px;
-      height: 32px;
-
-      border: 1px solid rgba(255,255,255,0.35);
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      color: white;
-
-      text-decoration: none;
-
-      font-size: 13px;
-    }
-
-    .footer-bottom {
-      max-width: 1250px;
-
-      margin: 22px auto 0;
-
-      padding-top: 18px;
-
-      border-top: 1px solid rgba(255,255,255,0.15);
-
-      display: flex;
-
-      justify-content: space-between;
-
-      color: rgba(255,255,255,0.65);
-
-      font-size: 11px;
-    }
-
-
-    /* =========================================================
-       SUCCESS MESSAGE
-       ========================================================= */
-
-    .success-message {
-      display: none;
-
+    .success {
       position: fixed;
-
       left: 50%;
-
       bottom: 25px;
-
+      z-index: 20;
+      display: none;
       transform: translateX(-50%);
-
-      z-index: 500;
-
-      background: var(--green);
-
-      color: white;
-
-      padding: 15px 22px;
-
+      padding: 14px 22px;
       border-radius: 10px;
-
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
       font-size: 14px;
     }
 
-    .success-message.show {
-      display: block;
-
-      animation: appear 0.3s ease;
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translate(-50%, 10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-      }
-    }
-
-
-    /* =========================================================
-       RESPONSIVE — TABLET
-       ========================================================= */
+    .success.show { display: block; }
 
     @media (max-width: 900px) {
+      nav { display: none; }
 
-      header {
-        padding: 0 4%;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .form-section {
+      .section {
         grid-template-columns: 1fr;
-
-        gap: 22px;
-
-        padding: 34px 30px;
+        gap: 25px;
+        padding: 35px 30px;
       }
 
-      .section-label p {
-        max-width: 450px;
-      }
-
-      .field-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .summary-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-inner {
-        flex-wrap: wrap;
-      }
+      .section-label p { max-width: 500px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
     }
-
-
-    /* =========================================================
-       RESPONSIVE — MOBILE
-       ========================================================= */
 
     @media (max-width: 600px) {
-
       header {
-        height: 72px;
+        height: 68px;
+        padding: 0 5%;
       }
 
-      .brand-logo {
-        width: 39px;
+      .brand-name { font-size: 23px; }
+      .login-link { display: none; }
+
+      .intro {
+        width: 90%;
+        padding: 55px 0 35px;
       }
 
-      .brand-name {
-        font-size: 21px;
+      .intro h1 {
+        font-size: 52px;
+        letter-spacing: -2px;
       }
 
-      .brand-subtitle {
-        display: none;
+      .form-wrap {
+        width: 94%;
+        padding-bottom: 55px;
       }
 
-      .header-actions {
-        gap: 8px;
-      }
+      .section { padding: 28px 20px; }
+      .privacy { grid-template-columns: 1fr; }
+      .summary-grid { grid-template-columns: 1fr; }
 
-      .login-link {
-        display: none;
-      }
-
-      .start-button {
-        padding: 10px 15px;
-
-        font-size: 13px;
-      }
-
-      .page-intro {
-        padding: 48px 20px 30px;
-      }
-
-      .page-intro h1 {
-        font-size: 43px;
-
-        letter-spacing: -1.5px;
-      }
-
-      .intro-text {
-        font-size: 16px;
-      }
-
-      .form-wrapper {
-        padding: 0 12px 50px;
-      }
-
-      .form-section {
+      .actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
         padding: 28px 20px;
       }
 
-      .section-label h2 {
-        font-size: 21px;
-      }
-
-      .privacy-options {
-        grid-template-columns: 1fr;
-      }
-
-      .summary-grid {
-        grid-template-columns: 1fr;
-      }
+      .save { width: 100%; }
+      .back { text-align: center; }
 
       .intensity-row {
-        grid-template-columns: 90px 1fr 35px;
-
-        gap: 8px;
+        grid-template-columns: 90px 1fr 25px;
+        gap: 7px;
       }
 
-      .intensity-dot {
-        width: 23px;
-        height: 23px;
-      }
-
-      .form-actions {
-        padding: 28px 20px;
-
-        flex-direction: column-reverse;
-
-        align-items: stretch;
-      }
-
-      .back-button {
-        text-align: center;
-      }
-
-      .save-button {
-        width: 100%;
-      }
-
-      .save-note {
-        padding: 0 20px 25px;
-
-        text-align: center;
-
-        margin-top: -5px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-
-        gap: 15px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-
-        gap: 8px;
+      .dot {
+        width: 21px;
+        height: 21px;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
+<header>
+  <a href="index.html" class="brand" aria-label="Ti Porto Con Me">
+    <svg class="brand-logo" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M5 45 L30 20 L46 34 L64 12 L95 45"
+            fill="none" stroke="currentColor" stroke-width="7"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 20 L38 28"
+            fill="none" stroke="currentColor" stroke-width="7"
+            stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">ti porto con me</span>
+  </a>
 
-  <!-- =======================================================
-       HEADER
-       ======================================================= -->
+  <nav aria-label="Navigazione principale">
+    <a href="index.html">Come funziona</a>
+    <a href="index.html">Albero della Vita</a>
+    <a href="diario.html">Diario</a>
+    <a href="blog.html">Blog</a>
+  </nav>
 
-  <header>
+  <div class="header-actions">
+    <a href="#" class="login-link">Accedi</a>
+    <a href="racconta.html" class="start-button">Inizia</a>
+  </div>
+</header>
 
-    <a href="index.html" class="brand">
+<main>
+  <section class="intro">
+    <div class="eyebrow">Racconta</div>
+    <h1>Racconta quello<br>che hai vissuto.</h1>
 
-      <!-- LOGO TPCM -->
-      <svg
-        class="brand-logo"
-        viewBox="0 0 100 60"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-label="Ti Porto Con Me"
-      >
-        <path
-          d="M5 45 L30 20 L46 34 L64 12 L95 45"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+    <p class="intro-copy">
+      Ogni esperienza lascia qualcosa dentro di noi.
+      Raccontala, custodiscila e, se vuoi, condividila.
+    </p>
 
-        <path
-          d="M30 20 L38 28"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="7"
-          stroke-linecap="round"
-        />
-      </svg>
-
-      <div>
-        <span class="brand-name">
-          ti porto con me
-        </span>
-
-        <span class="brand-subtitle">
-          RACCONTA · VIVI · TRAMANDA
-        </span>
-      </div>
-
-    </a>
-
-
-    <nav>
-
-      <a href="index.html">
-        Il progetto
-      </a>
-
-      <a href="come-funziona.html">
-        Come funziona
-      </a>
-
-      <a href="albero.html">
-        Albero della Vita
-      </a>
-
-      <a href="diario.html">
-        Diario
-      </a>
-
-      <a href="blog.html">
-        Blog
-      </a>
-
-    </nav>
-
-
-    <div class="header-actions">
-
-      <a
-        href="accedi.html"
-        class="login-link"
-      >
-        Accedi
-      </a>
-
-      <a
-        href="racconta.html"
-        class="start-button"
-      >
-        Inizia
-      </a>
-
+    <div class="divider" aria-hidden="true">
+      <span></span>
+      <b class="mountain">⌁</b>
+      <span></span>
     </div>
-
-  </header>
-
-
-
-  <!-- =======================================================
-       INTRODUZIONE
-       ======================================================= -->
-
-  <main>
-
-    <section class="page-intro">
-
-      <div class="eyebrow">
-        Un nuovo seme
-      </div>
-
-      <h1>
-        Racconta quello
-        che hai vissuto.
-      </h1>
-
-      <p class="intro-text">
-        Ogni esperienza lascia qualcosa dentro di noi.
-        Raccontala, custodiscila e, se vuoi,
-        condividila.
-      </p>
-
-      <div class="intro-line">
-
-        <svg
-          class="intro-mountain"
-          viewBox="0 0 60 35"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M2 30 L18 12 L29 23 L43 5 L58 30"
-            fill="none"
-            stroke="var(--green)"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         FORM
-         ===================================================== -->
-
-    <div class="form-wrapper">
-
-      <form
-        id="storyForm"
-        class="form-card"
-      >
-
-
-        <!-- =================================================
-             01 — RICORDO
-             ================================================= -->
-
-        <section class="form-section">
-
-          <div class="section-label">
-
-            <div class="section-number">
-              01
-            </div>
-
-            <h2>
-              Il tuo ricordo
-            </h2>
-
-            <p>
-              Cominciamo dalle
-              cose semplici.
-            </p>
-
-            <div class="leaf">
-              ♧
-            </div>
-
-          </div>
-
-
-          <div class="section-content">
-
-            <div class="field">
-
-              <label for="title">
-                Titolo del ricordo
-                <span class="required">*</span>
-              </label>
-
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Es. Il mio primo 3000"
-                required
-              >
-
-            </div>
-
-
-            <div class="field-grid">
-
-              <div class="field">
-
-                <label for="place">
-                  Dove sei stato?
-                  <span class="required">*</span>
-                </label>
-
-                <input
-                  type="text"
-                  id="place"
-                  name="place"
-                  placeholder="Es. Monte Rosa"
-                  required
-                >
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="date">
-                  Quando?
-                  <span class="required">*</span>
-                </label>
-
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  required
-                >
-
-              </div>
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="story">
-                La tua storia
-                <span class="required">*</span>
-              </label>
-
-              <textarea
-                id="story"
-                name="story"
-                placeholder="Racconta quello che hai vissuto, quello che hai provato, quello che vuoi ricordare..."
-                required
-              ></textarea>
-
-              <div class="field-note">
-                ♧
-                Scrivi come parleresti a qualcuno
-                a cui vuoi raccontare questa esperienza.
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             02 — FOTO
-             ================================================= -->
-
-        <section class="form-section">
-
-          <div class="section-label">
-
-            <div class="section-number">
-              02
-            </div>
-
-            <h2>
-              Una fotografia
-            </h2>
-
-            <p>
-              Se vuoi, puoi
-              accompagnare il tuo
-              ricordo con un'immagine.
-            </p>
-
-            <div class="leaf">
-              ♧
-            </div>
-
-          </div>
-
-
-          <div class="section-content">
-
-            <div
-              class="upload-area"
-              id="uploadArea"
-            >
-
-              <div class="upload-inner">
-
-                <svg
-                  class="upload-icon"
-                  viewBox="0 0 64 64"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="8"
-                    y="15"
-                    width="48"
-                    height="37"
-                    rx="5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-
-                  <circle
-                    cx="32"
-                    cy="33"
-                    r="10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-
-                  <circle
-                    cx="46"
-                    cy="23"
-                    r="3"
-                    fill="currentColor"
-                  />
-
-                  <path
-                    d="M20 15 L25 9 H39 L44 15"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-
-
-                <div class="upload-title">
-                  Trascina qui la tua fotografia
-                </div>
-
-                <div class="upload-description">
-                  oppure
-                </div>
-
-                <button
-                  type="button"
-                  class="upload-button"
-                  id="choosePhoto"
-                >
-                  Scegli una fotografia
-                </button>
-
-                <div class="upload-info">
-                  JPG, PNG o WEBP · Max 10 MB
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <input
-              type="file"
-              id="photoInput"
-              accept="image/jpeg,image/png,image/webp"
-            >
-
-
-            <div
-              class="photo-preview"
-              id="photoPreview"
-            >
-
-              <img
-                id="previewImage"
-                alt="Anteprima della fotografia"
-              >
-
-              <button
-                type="button"
-                class="remove-photo"
-                id="removePhoto"
-                aria-label="Rimuovi fotografia"
-              >
-                ×
-              </button>
-
-              <div class="photo-actions">
-
-                <button
-                  type="button"
-                  id="replacePhoto"
-                >
-                  Sostituisci
-                </button>
-
-                <button
-                  type="button"
-                  id="deletePhoto"
-                >
-                  Rimuovi
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             03 — EMOZIONI
-             ================================================= -->
-
-        <section class="form-section">
-
-          <div class="section-label">
-
-            <div class="section-number">
-              03
-            </div>
-
-            <h2>
-              Come ti ha fatto sentire?
-            </h2>
-
-            <p>
-              Scegli una o più emozioni
-              e indica quanto le hai sentite.
-            </p>
-
-            <div class="leaf">
-              ♧
-            </div>
-
-          </div>
-
-
-          <div class="section-content">
-
-            <p class="emotion-intro">
-              Puoi scegliere una o più emozioni.
-            </p>
-
-
-            <div
-              class="emotion-list"
-              id="emotionList"
-            >
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Meraviglia"
-              >
-                Meraviglia
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Libertà"
-              >
-                Libertà
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Pace"
-              >
-                Pace
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Gioia"
-              >
-                Gioia
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Emozione"
-              >
-                Emozione
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Coraggio"
-              >
-                Coraggio
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Fatica"
-              >
-                Fatica
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Paura"
-              >
-                Paura
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Solitudine"
-              >
-                Solitudine
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Connessione"
-              >
-                Connessione
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Nostalgia"
-              >
-                Nostalgia
-              </button>
-
-              <button
-                type="button"
-                class="emotion-button"
-                data-emotion="Gratitudine"
-              >
-                Gratitudine
-              </button>
-
-            </div>
-
-
-            <!-- PANNELLO INTENSITÀ -->
-
-            <div
-              class="intensity-panel"
-              id="intensityPanel"
-            >
-
-              <div class="intensity-title">
-                Quanto è stata intensa?
-              </div>
-
-              <div class="intensity-description">
-                Indica l'intensità per ciascuna
-                emozione selezionata.
-              </div>
-
-              <div id="intensityRows"></div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             04 — COSA PORTI CON TE
-             ================================================= -->
-
-        <section class="form-section">
-
-          <div class="section-label">
-
-            <div class="section-number">
-              04
-            </div>
-
-            <h2>
-              Cosa porti con te?
-            </h2>
-
-            <p>
-              A volte, dopo un'esperienza,
-              rimane qualcosa.
-            </p>
-
-            <div class="leaf">
-              ♧
-            </div>
-
-          </div>
-
-
-          <div class="section-content">
-
-            <div class="field">
-
-              <label for="lasting">
-                Una frase, un pensiero,
-                qualcosa che è rimasto
-                <span class="optional">
-                  (facoltativo)
-                </span>
-              </label>
-
-              <textarea
-                id="lasting"
-                name="lasting"
-                placeholder="Es. Ho capito che non devo sempre arrivare in cima..."
-              ></textarea>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             05 — PRIVACY
-             ================================================= -->
-
-        <section class="form-section">
-
-          <div class="section-label">
-
-            <div class="section-number">
-              05
-            </div>
-
-            <h2>
-              Chi potrà vedere
-              questo racconto?
-            </h2>
-
-            <p>
-              Puoi cambiare questa scelta
-              anche in seguito.
-            </p>
-
-            <div class="leaf">
-              ♧
-            </div>
-
-          </div>
-
-
-          <div class="section-content">
-
-            <div class="privacy-options">
-
-
-              <label
-                class="privacy-option selected"
-                id="privacyPrivate"
-              >
-
-                <input
-                  type="radio"
-                  name="privacy"
-                  value="private"
-                  checked
-                >
-
-                <div class="privacy-icon">
-                  ♧
-                </div>
-
-                <h3>
-                  Solo io
-                </h3>
-
-                <p>
-                  Il racconto rimane privato
-                  e visibile solamente a te.
-                </p>
-
-              </label>
-
-
-              <label
-                class="privacy-option"
-                id="privacyCommunity"
-              >
-
-                <input
-                  type="radio"
-                  name="privacy"
-                  value="community"
-                >
-
-                <div class="privacy-icon">
-                  ♡
-                </div>
-
-                <h3>
-                  Con la comunità
-                </h3>
-
-                <p>
-                  Il racconto potrà essere
-                  condiviso con le persone
-                  che fanno parte di TPCM.
-                </p>
-
-              </label>
-
-            </div>
-
-
-            <div class="privacy-note">
-              ♧
-              Il tuo racconto appartiene a te.
-              La scelta di condividerlo è sempre tua
-              e potrai modificarla in seguito.
-            </div>
-
-
-            <!-- RIEPILOGO -->
-
-            <div class="summary">
-
-              <h3>
-                Riepilogo del tuo racconto
-              </h3>
-
-              <div class="summary-grid">
-
-                <div class="summary-item">
-                  <span>Titolo</span>
-                  <strong id="summaryTitle">
-                    —
-                  </strong>
-                </div>
-
-                <div class="summary-item">
-                  <span>Luogo</span>
-                  <strong id="summaryPlace">
-                    —
-                  </strong>
-                </div>
-
-                <div class="summary-item">
-                  <span>Data</span>
-                  <strong id="summaryDate">
-                    —
-                  </strong>
-                </div>
-
-                <div class="summary-item">
-                  <span>Emozioni</span>
-                  <strong id="summaryEmotions">
-                    Nessuna
-                  </strong>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             AZIONI FINALI
-             ================================================= -->
-
-        <div class="form-actions">
-
-          <a
-            href="index.html"
-            class="back-button"
-          >
-            ← Torna indietro
-          </a>
-
-
-          <button
-            type="submit"
-            class="save-button"
-          >
-            ♧ &nbsp; Conserva il mio racconto
-          </button>
-
+  </section>
+
+  <div class="form-wrap">
+    <form class="story-form" id="storyForm">
+
+      <section class="section">
+        <div class="section-label">
+          <div class="section-number">01</div>
+          <h2>Il tuo ricordo</h2>
+          <p>Cominciamo dalle cose semplici.</p>
         </div>
-
-
-        <div class="save-note">
-          Il tuo racconto sarà salvato
-          in attesa della conservazione definitiva.
-        </div>
-
-
-      </form>
-
-    </div>
-
-  </main>
-
-
-
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
-
-  <footer>
-
-    <div class="footer-inner">
-
-
-      <div class="footer-brand">
-
-        <svg
-          class="brand-logo"
-          viewBox="0 0 100 60"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Ti Porto Con Me"
-        >
-
-          <path
-            d="M5 45 L30 20 L46 34 L64 12 L95 45"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M30 20 L38 28"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="7"
-            stroke-linecap="round"
-          />
-
-        </svg>
 
         <div>
+          <div class="field">
+            <label class="field-label" for="title">
+              Titolo del ricordo <span class="required">*</span>
+            </label>
+            <input id="title" name="title" type="text"
+                   autocomplete="off"
+                   placeholder="Es. Il mio primo 3000" required>
+          </div>
 
-          <span class="brand-name">
-            ti porto con me
-          </span>
+          <div class="grid-2">
+            <div class="field">
+              <label class="field-label" for="place">
+                Dove sei stato? <span class="required">*</span>
+              </label>
+              <input id="place" name="place" type="text"
+                     autocomplete="off"
+                     placeholder="Es. Monte Rosa" required>
+            </div>
 
-          <span class="brand-subtitle">
-            RACCONTA · VIVI · TRAMANDA
-          </span>
+            <div class="field">
+              <label class="field-label" for="date">
+                Quando? <span class="required">*</span>
+              </label>
+              <input id="date" name="date" type="date" required>
+            </div>
+          </div>
 
+          <div class="field">
+            <label class="field-label" for="story">
+              La tua storia <span class="required">*</span>
+            </label>
+            <textarea id="story" name="story"
+              placeholder="Racconta quello che hai vissuto, quello che hai provato, quello che vuoi ricordare..."
+              required></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">
+          <div class="section-number">02</div>
+          <h2>Una fotografia</h2>
+          <p>Se vuoi, porta con te anche un'immagine.</p>
         </div>
 
+        <div>
+          <div class="upload" id="uploadArea">
+            <div>
+              <div class="upload-title">Aggiungi una fotografia</div>
+              <div class="upload-copy">Una fotografia può custodire un momento.</div>
+              <button type="button" class="upload-button" id="choosePhoto">
+                Scegli fotografia
+              </button>
+              <input id="photoInput" type="file" accept="image/*">
+            </div>
+          </div>
+
+          <div class="preview" id="preview">
+            <img id="previewImage" alt="Anteprima della fotografia">
+            <button type="button" class="remove-photo" id="removePhoto" aria-label="Rimuovi fotografia">×</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">
+          <div class="section-number">03</div>
+          <h2>Che cosa hai provato?</h2>
+          <p>Scegli le emozioni che vuoi associare al ricordo.</p>
+        </div>
+
+        <div>
+          <p class="emotion-copy">Puoi sceglierne più di una.</p>
+
+          <div class="emotions" id="emotions">
+            <button type="button" class="emotion" data-emotion="Meraviglia">Meraviglia</button>
+            <button type="button" class="emotion" data-emotion="Libertà">Libertà</button>
+            <button type="button" class="emotion" data-emotion="Felicità">Felicità</button>
+            <button type="button" class="emotion" data-emotion="Pace">Pace</button>
+            <button type="button" class="emotion" data-emotion="Coraggio">Coraggio</button>
+            <button type="button" class="emotion" data-emotion="Nostalgia">Nostalgia</button>
+            <button type="button" class="emotion" data-emotion="Stupore">Stupore</button>
+            <button type="button" class="emotion" data-emotion="Gratitudine">Gratitudine</button>
+          </div>
+
+          <div class="intensity" id="intensity">
+            <h3>Quanto era intensa?</h3>
+            <div id="intensityRows"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">
+          <div class="section-number">04</div>
+          <h2>Cosa porti con te?</h2>
+          <p>A volte, dopo un'esperienza, rimane qualcosa.</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="lasting">
+            Una frase, un pensiero, qualcosa che è rimasto
+            <span style="font-weight:normal;color:var(--muted)">(facoltativo)</span>
+          </label>
+          <textarea id="lasting" name="lasting"
+            placeholder="Es. Ho capito che non devo sempre arrivare in cima..."></textarea>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">
+          <div class="section-number">05</div>
+          <h2>Chi potrà vedere questo racconto?</h2>
+          <p>La scelta di condividerlo è sempre tua.</p>
+        </div>
+
+        <div>
+          <div class="privacy">
+            <label class="privacy-option selected" id="privateOption">
+              <input type="radio" name="privacy" value="private" checked>
+              <h3>Solo io</h3>
+              <p>Il racconto rimane privato e visibile solamente a te.</p>
+            </label>
+
+            <label class="privacy-option" id="communityOption">
+              <input type="radio" name="privacy" value="community">
+              <h3>Con la comunità</h3>
+              <p>Il racconto potrà essere condiviso con le persone che fanno parte di Ti Porto Con Me.</p>
+            </label>
+          </div>
+
+          <div class="privacy-note">
+            Il tuo racconto appartiene a te. Potrai modificare questa scelta in seguito.
+          </div>
+
+          <div class="summary">
+            <h3>Riepilogo del tuo racconto</h3>
+
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span>Titolo</span>
+                <strong id="summaryTitle">—</strong>
+              </div>
+
+              <div class="summary-item">
+                <span>Luogo</span>
+                <strong id="summaryPlace">—</strong>
+              </div>
+
+              <div class="summary-item">
+                <span>Data</span>
+                <strong id="summaryDate">—</strong>
+              </div>
+
+              <div class="summary-item">
+                <span>Emozioni</span>
+                <strong id="summaryEmotions">Nessuna</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <a href="index.html" class="back">← Torna alla home</a>
+        <button type="submit" class="save">Conserva il racconto</button>
       </div>
 
-
-      <div class="footer-links">
-
-        <a href="index.html">
-          Il progetto
-        </a>
-
-        <a href="come-funziona.html">
-          Come funziona
-        </a>
-
-        <a href="diario.html">
-          Diario
-        </a>
-
-        <a href="privacy.html">
-          Privacy
-        </a>
-
-        <a href="contatti.html">
-          Contatti
-        </a>
-
-      </div>
-
-
-      <div class="footer-social">
-
-        <a
-          href="#"
-          class="social-circle"
-          aria-label="Instagram"
-        >
-          ◎
-        </a>
-
-        <a
-          href="#"
-          class="social-circle"
-          aria-label="Facebook"
-        >
-          f
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-      <span>
-        © 2026 Ti Porto Con Me
-      </span>
-
-      <span>
-        Un luogo per ciò che vuoi portare con te.
-      </span>
-
-    </div>
-
-  </footer>
-
-
-
-  <!-- =======================================================
-       MESSAGGIO SUCCESSO
-       ======================================================= -->
-
-  <div
-    class="success-message"
-    id="successMessage"
-  >
-    Il tuo racconto è stato preparato.
+    </form>
   </div>
+</main>
 
+<div class="success" id="success" role="status" aria-live="polite">
+  Il tuo racconto è stato conservato.
+</div>
 
+<script>
+  const form = document.getElementById("storyForm");
+  const titleInput = document.getElementById("title");
+  const placeInput = document.getElementById("place");
+  const dateInput = document.getElementById("date");
+  const storyInput = document.getElementById("story");
+  const lastingInput = document.getElementById("lasting");
 
-  <!-- =======================================================
-       JAVASCRIPT
-       ======================================================= -->
+  const summaryTitle = document.getElementById("summaryTitle");
+  const summaryPlace = document.getElementById("summaryPlace");
+  const summaryDate = document.getElementById("summaryDate");
+  const summaryEmotions = document.getElementById("summaryEmotions");
 
-  <script>
+  const selectedEmotions = {};
 
-    /* =========================================================
-       FOTO
-       ========================================================= */
+  function updateSummary() {
+    summaryTitle.textContent = titleInput.value.trim() || "—";
+    summaryPlace.textContent = placeInput.value.trim() || "—";
 
-    const photoInput =
-      document.getElementById("photoInput");
-
-    const choosePhoto =
-      document.getElementById("choosePhoto");
-
-    const replacePhoto =
-      document.getElementById("replacePhoto");
-
-    const removePhoto =
-      document.getElementById("removePhoto");
-
-    const deletePhoto =
-      document.getElementById("deletePhoto");
-
-    const uploadArea =
-      document.getElementById("uploadArea");
-
-    const photoPreview =
-      document.getElementById("photoPreview");
-
-    const previewImage =
-      document.getElementById("previewImage");
-
-
-    choosePhoto.addEventListener(
-      "click",
-      () => photoInput.click()
-    );
-
-
-    replacePhoto.addEventListener(
-      "click",
-      () => photoInput.click()
-    );
-
-
-    removePhoto.addEventListener(
-      "click",
-      removePhotoFunction
-    );
-
-
-    deletePhoto.addEventListener(
-      "click",
-      removePhotoFunction
-    );
-
-
-    photoInput.addEventListener(
-      "change",
-      function () {
-
-        const file = this.files[0];
-
-        if (!file) return;
-
-        handlePhoto(file);
-
-      }
-    );
-
-
-    function handlePhoto(file) {
-
-      if (!file.type.startsWith("image/")) {
-
-        alert(
-          "Per favore scegli una fotografia."
-        );
-
-        return;
-      }
-
-
-      if (file.size > 10 * 1024 * 1024) {
-
-        alert(
-          "La fotografia deve essere inferiore a 10 MB."
-        );
-
-        return;
-      }
-
-
-      const reader =
-        new FileReader();
-
-
-      reader.onload = function (event) {
-
-        previewImage.src =
-          event.target.result;
-
-        photoPreview.style.display =
-          "block";
-
-        uploadArea.style.display =
-          "none";
-
-      };
-
-
-      reader.readAsDataURL(file);
-
+    if (dateInput.value) {
+      const date = new Date(dateInput.value + "T00:00:00");
+      summaryDate.textContent = date.toLocaleDateString("it-IT");
+    } else {
+      summaryDate.textContent = "—";
     }
 
+    const emotions = Object.keys(selectedEmotions);
 
-    function removePhotoFunction() {
+    summaryEmotions.textContent = emotions.length
+      ? emotions.map(emotion => `${emotion} (${selectedEmotions[emotion]}/5)`).join(", ")
+      : "Nessuna";
+  }
 
-      photoInput.value = "";
+  [titleInput, placeInput, storyInput, lastingInput].forEach(input => {
+    input.addEventListener("input", updateSummary);
+  });
 
-      previewImage.src = "";
+  dateInput.addEventListener("change", updateSummary);
 
-      photoPreview.style.display =
-        "none";
+  document.querySelectorAll(".emotion").forEach(button => {
+    button.addEventListener("click", () => {
+      const emotion = button.dataset.emotion;
 
-      uploadArea.style.display =
-        "flex";
+      if (button.classList.contains("selected")) {
+        button.classList.remove("selected");
+        delete selectedEmotions[emotion];
+      } else {
+        button.classList.add("selected");
+        selectedEmotions[emotion] = 3;
+      }
 
+      renderIntensity();
+      updateSummary();
+    });
+  });
+
+  function renderIntensity() {
+    const panel = document.getElementById("intensity");
+    const rows = document.getElementById("intensityRows");
+    const emotions = Object.keys(selectedEmotions);
+
+    rows.innerHTML = "";
+
+    if (!emotions.length) {
+      panel.classList.remove("visible");
+      return;
     }
 
+    panel.classList.add("visible");
 
-    /* =========================================================
-       DRAG & DROP
-       ========================================================= */
+    emotions.forEach(emotion => {
+      const row = document.createElement("div");
+      row.className = "intensity-row";
 
-    [
-      "dragenter",
-      "dragover"
-    ].forEach(eventName => {
+      const name = document.createElement("div");
+      name.textContent = emotion;
 
-      uploadArea.addEventListener(
-        eventName,
-        function (event) {
+      const dots = document.createElement("div");
+      dots.className = "dots";
 
-          event.preventDefault();
+      for (let i = 1; i <= 5; i++) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "dot" + (i <= selectedEmotions[emotion] ? " active" : "");
+        dot.setAttribute("aria-label", `${emotion}: intensità ${i} su 5`);
 
-          uploadArea.classList.add(
-            "dragover"
-          );
-
-        }
-      );
-
-    });
-
-
-    [
-      "dragleave",
-      "drop"
-    ].forEach(eventName => {
-
-      uploadArea.addEventListener(
-        eventName,
-        function (event) {
-
-          event.preventDefault();
-
-          uploadArea.classList.remove(
-            "dragover"
-          );
-
-        }
-      );
-
-    });
-
-
-    uploadArea.addEventListener(
-      "drop",
-      function (event) {
-
-        const file =
-          event.dataTransfer.files[0];
-
-        if (file) {
-
-          handlePhoto(file);
-
-        }
-
-      }
-    );
-
-
-    /* =========================================================
-       EMOZIONI
-       ========================================================= */
-
-    const emotionButtons =
-      document.querySelectorAll(
-        ".emotion-button"
-      );
-
-    const intensityPanel =
-      document.getElementById(
-        "intensityPanel"
-      );
-
-    const intensityRows =
-      document.getElementById(
-        "intensityRows"
-      );
-
-
-    const selectedEmotions = {};
-
-
-    emotionButtons.forEach(button => {
-
-      button.addEventListener(
-        "click",
-        function () {
-
-          const emotion =
-            this.dataset.emotion;
-
-
-          if (
-            this.classList.contains(
-              "selected"
-            )
-          ) {
-
-            this.classList.remove(
-              "selected"
-            );
-
-            delete selectedEmotions[
-              emotion
-            ];
-
-          } else {
-
-            this.classList.add(
-              "selected"
-            );
-
-            selectedEmotions[
-              emotion
-            ] = 3;
-
-          }
-
-
-          renderIntensityRows();
-
+        dot.addEventListener("click", () => {
+          selectedEmotions[emotion] = i;
+          renderIntensity();
           updateSummary();
+        });
 
-        }
-      );
-
-    });
-
-
-    function renderIntensityRows() {
-
-      intensityRows.innerHTML = "";
-
-
-      const emotions =
-        Object.keys(
-          selectedEmotions
-        );
-
-
-      if (emotions.length === 0) {
-
-        intensityPanel.classList.remove(
-          "visible"
-        );
-
-        return;
-
+        dots.appendChild(dot);
       }
 
+      const value = document.createElement("div");
+      value.textContent = selectedEmotions[emotion];
 
-      intensityPanel.classList.add(
-        "visible"
-      );
+      row.appendChild(name);
+      row.appendChild(dots);
+      row.appendChild(value);
+      rows.appendChild(row);
+    });
+  }
 
+  const uploadArea = document.getElementById("uploadArea");
+  const photoInput = document.getElementById("photoInput");
+  const choosePhoto = document.getElementById("choosePhoto");
+  const preview = document.getElementById("preview");
+  const previewImage = document.getElementById("previewImage");
+  const removePhoto = document.getElementById("removePhoto");
 
-      emotions.forEach(emotion => {
+  choosePhoto.addEventListener("click", () => photoInput.click());
 
-        const row =
-          document.createElement(
-            "div"
-          );
+  photoInput.addEventListener("change", () => {
+    const file = photoInput.files[0];
+    if (file) handlePhoto(file);
+  });
 
-        row.className =
-          "intensity-row";
-
-
-        const name =
-          document.createElement(
-            "div"
-          );
-
-        name.className =
-          "intensity-name";
-
-        name.textContent =
-          emotion;
-
-
-        const control =
-          document.createElement(
-            "div"
-          );
-
-        control.className =
-          "intensity-control";
-
-
-        for (
-          let value = 1;
-          value <= 5;
-          value++
-        ) {
-
-          const dot =
-            document.createElement(
-              "button"
-            );
-
-          dot.type = "button";
-
-          dot.className =
-            "intensity-dot";
-
-          if (
-            value <=
-            selectedEmotions[
-              emotion
-            ]
-          ) {
-
-            dot.classList.add(
-              "active"
-            );
-
-          }
-
-
-          dot.addEventListener(
-            "click",
-            function () {
-
-              selectedEmotions[
-                emotion
-              ] = value;
-
-              renderIntensityRows();
-
-              updateSummary();
-
-            }
-          );
-
-
-          control.appendChild(dot);
-
-        }
-
-
-        const valueLabel =
-          document.createElement(
-            "div"
-          );
-
-        valueLabel.className =
-          "intensity-value";
-
-        valueLabel.textContent =
-          selectedEmotions[
-            emotion
-          ] + "/5";
-
-
-        row.appendChild(name);
-
-        row.appendChild(control);
-
-        row.appendChild(valueLabel);
-
-        intensityRows.appendChild(row);
-
-      });
-
+  function handlePhoto(file) {
+    if (!file.type.startsWith("image/")) {
+      alert("Per favore scegli una fotografia.");
+      return;
     }
 
-
-    /* =========================================================
-       PRIVACY
-       ========================================================= */
-
-    const privacyOptions =
-      document.querySelectorAll(
-        ".privacy-option"
-      );
-
-
-    privacyOptions.forEach(option => {
-
-      option.addEventListener(
-        "click",
-        function () {
-
-          privacyOptions.forEach(
-            item =>
-              item.classList.remove(
-                "selected"
-              )
-          );
-
-
-          this.classList.add(
-            "selected"
-          );
-
-
-          const radio =
-            this.querySelector(
-              "input[type='radio']"
-            );
-
-
-          radio.checked = true;
-
-        }
-      );
-
-    });
-
-
-    /* =========================================================
-       SUMMARY
-       ========================================================= */
-
-    const titleInput =
-      document.getElementById("title");
-
-    const placeInput =
-      document.getElementById("place");
-
-    const dateInput =
-      document.getElementById("date");
-
-
-    function updateSummary() {
-
-      document.getElementById(
-        "summaryTitle"
-      ).textContent =
-        titleInput.value ||
-        "—";
-
-
-      document.getElementById(
-        "summaryPlace"
-      ).textContent =
-        placeInput.value ||
-        "—";
-
-
-      if (dateInput.value) {
-
-        const date =
-          new Date(
-            dateInput.value
-          );
-
-
-        document.getElementById(
-          "summaryDate"
-        ).textContent =
-          date.toLocaleDateString(
-            "it-IT"
-          );
-
-      } else {
-
-        document.getElementById(
-          "summaryDate"
-        ).textContent =
-          "—";
-
-      }
-
-
-      const emotions =
-        Object.keys(
-          selectedEmotions
-        );
-
-
-      if (
-        emotions.length === 0
-      ) {
-
-        document.getElementById(
-          "summaryEmotions"
-        ).textContent =
-          "Nessuna";
-
-      } else {
-
-        document.getElementById(
-          "summaryEmotions"
-        ).textContent =
-          emotions
-            .map(
-              emotion =>
-                emotion +
-                " (" +
-                selectedEmotions[
-                  emotion
-                ] +
-                "/5)"
-            )
-            .join(", ");
-
-      }
-
+    if (file.size > 10 * 1024 * 1024) {
+      alert("La fotografia deve essere inferiore a 10 MB.");
+      return;
     }
 
+    const reader = new FileReader();
 
-    titleInput.addEventListener(
-      "input",
-      updateSummary
-    );
+    reader.onload = event => {
+      previewImage.src = event.target.result;
+      preview.style.display = "block";
+      uploadArea.style.display = "none";
+    };
 
+    reader.readAsDataURL(file);
+  }
 
-    placeInput.addEventListener(
-      "input",
-      updateSummary
-    );
+  removePhoto.addEventListener("click", () => {
+    photoInput.value = "";
+    previewImage.src = "";
+    preview.style.display = "none";
+    uploadArea.style.display = "flex";
+  });
 
+  ["dragenter", "dragover"].forEach(eventName => {
+    uploadArea.addEventListener(eventName, event => {
+      event.preventDefault();
+      uploadArea.classList.add("dragover");
+    });
+  });
 
-    dateInput.addEventListener(
-      "change",
-      updateSummary
-    );
+  ["dragleave", "drop"].forEach(eventName => {
+    uploadArea.addEventListener(eventName, event => {
+      event.preventDefault();
+      uploadArea.classList.remove("dragover");
+    });
+  });
 
+  uploadArea.addEventListener("drop", event => {
+    const file = event.dataTransfer.files[0];
+    if (file) handlePhoto(file);
+  });
 
-    /* =========================================================
-       FORM SUBMIT
-       ========================================================= */
+  document.querySelectorAll(".privacy-option").forEach(option => {
+    option.addEventListener("click", () => {
+      document.querySelectorAll(".privacy-option")
+        .forEach(item => item.classList.remove("selected"));
 
-    const storyForm =
-      document.getElementById(
-        "storyForm"
-      );
+      option.classList.add("selected");
+      option.querySelector("input").checked = true;
+    });
+  });
 
+  form.addEventListener("submit", event => {
+    event.preventDefault();
 
-    storyForm.addEventListener(
-      "submit",
-      function (event) {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-        event.preventDefault();
+    const storyData = {
+      title: titleInput.value.trim(),
+      place: placeInput.value.trim(),
+      date: dateInput.value,
+      story: storyInput.value.trim(),
+      lasting: lastingInput.value.trim(),
+      emotions: { ...selectedEmotions },
+      privacy: document.querySelector("input[name='privacy']:checked")?.value || "private",
+      savedAt: new Date().toISOString()
+    };
 
+    localStorage.setItem("tpcm_last_story", JSON.stringify(storyData));
 
-        if (
-          Object.keys(
-            selectedEmotions
-          ).length === 0
-        ) {
+    const success = document.getElementById("success");
+    success.classList.add("show");
 
-          alert(
-            "Puoi raccontare la tua esperienza anche senza scegliere un'emozione."
-          );
+    setTimeout(() => {
+      success.classList.remove("show");
+    }, 3500);
+  });
 
-        }
-
-
-        const storyData = {
-
-          title:
-            titleInput.value,
-
-          place:
-            placeInput.value,
-
-          date:
-            dateInput.value,
-
-          story:
-            document.getElementById(
-              "story"
-            ).value,
-
-          lasting:
-            document.getElementById(
-              "lasting"
-            ).value,
-
-          emotions:
-            selectedEmotions,
-
-          privacy:
-            document.querySelector(
-              "input[name='privacy']:checked"
-            )?.value || "private"
-
-        };
-
-
-        /*
-          Per ora conserviamo temporaneamente
-          i dati nel browser.
-
-          In seguito questo punto verrà
-          collegato a Supabase.
-        */
-
-        localStorage.setItem(
-          "tpcm_last_story",
-          JSON.stringify(
-            storyData
-          )
-        );
-
-
-        const successMessage =
-          document.getElementById(
-            "successMessage"
-          );
-
-
-        successMessage.classList.add(
-          "show"
-        );
-
-
-        setTimeout(
-          () => {
-
-            successMessage.classList.remove(
-              "show"
-            );
-
-          },
-          3500
-        );
-
-      }
-    );
-
-
-    /* =========================================================
-       INIZIALIZZAZIONE
-       ========================================================= */
-
-    updateSummary();
-
-  </script>
+  updateSummary();
+</script>
 
 </body>
 </html>
