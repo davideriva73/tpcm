@@ -108,14 +108,16 @@ nav a:hover,
   margin: 0 auto;
   text-align: center;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 10px;
+  row-gap: 0;
+  align-items: start;
 }
 
 .hero h1 {
-  flex: 0 0 100%;
+  grid-column: 1 / -1;
+
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -129,15 +131,15 @@ nav a:hover,
 }
 
 .hero-divider {
-  flex: 0 0 100%;
-  width: 100%;
-  max-width: 360px;
+  grid-column: 1 / -1;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
 
+  width: 100%;
+  max-width: 360px;
   margin: 35px auto;
 }
 
@@ -155,7 +157,8 @@ nav a:hover,
 }
 
 .hero-text {
-  flex: 0 0 100%;
+  grid-column: 1 / -1;
+
   width: 100%;
   max-width: 650px;
   margin: 0 auto;
@@ -171,17 +174,18 @@ nav a:hover,
 ========================================================= */
 
 .hero-content > .action {
-  flex: 0 0 220px;
-  width: 220px;
+  width: 100%;
   min-height: 180px;
 
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 
-  margin: 55px 5px 0;
+  margin: 55px 0 0;
   padding: 25px 20px;
+
+  box-sizing: border-box;
 
   color: #183b32;
   text-decoration: none;
@@ -227,12 +231,12 @@ nav a:hover,
 ========================================================= */
 
 .stay {
-  flex: 0 0 100%;
-  width: 100%;
+  grid-column: 1 / -1;
 
+  width: 100%;
   display: block;
 
-  margin: 35px auto 0;
+  margin: 45px auto 0;
   padding: 0;
 
   text-align: center;
@@ -822,11 +826,15 @@ footer {
     padding: 65px 5% 80px;
   }
 
+  .hero-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 10px;
+  }
+
   .hero-content > .action {
-    flex: 0 0 200px;
-    width: 200px;
-    margin-left: 3px;
-    margin-right: 3px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .values {
@@ -892,9 +900,9 @@ footer {
   }
 
   .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 0;
   }
 
   .hero h1 {
@@ -920,21 +928,14 @@ footer {
   }
 
   .hero-content > .action {
-    flex: none;
-
     width: 100%;
     max-width: 260px;
-
     margin: 20px auto 0;
   }
 
   .stay {
-    flex: none;
-
     width: 100%;
-
     margin-top: 35px;
-
     font-size: 11px;
   }
 
