@@ -90,7 +90,12 @@ textarea {
 }
 
 .hero-content > .action {
-  margin-top: 60px;
+  display: block;
+  width: auto;
+  min-height: 0;
+  margin: 35px auto 0;
+  padding: 0;
+  text-align: center;
 }
 
 .action {
