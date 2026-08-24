@@ -919,3 +919,86 @@ footer {
     white-space: normal;
   }
 }
+/* =========================================================
+   FIX HOMEPAGE — CENTRATURA E LAYOUT
+========================================================= */
+
+.hero {
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  padding: 80px 6% 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  width: 100%;
+  max-width: 650px;
+  margin: 25px auto 0;
+}
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 260px;
+  margin: 35px auto 0;
+}
+
+.hero-content .action {
+  display: inline-flex;
+  vertical-align: top;
+  width: 220px;
+  margin: 55px 5px 0;
+  text-align: left;
+}
+
+.stay {
+  text-align: center;
+  margin-top: 45px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 65px 5% 80px;
+  }
+
+  .hero-content .action {
+    width: 200px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding: 55px 5% 70px;
+  }
+
+  .hero-content .action {
+    display: flex;
+    width: 100%;
+    max-width: 260px;
+    margin: 20px auto 0;
+  }
+
+  .stay {
+    margin-top: 35px;
+  }
+}
